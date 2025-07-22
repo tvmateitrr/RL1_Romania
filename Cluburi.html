@@ -15,30 +15,29 @@
     }
     .club-card {
       transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      cursor: pointer; /* Adaugă un indicator vizual că elementul este clickabil */
+      cursor: pointer;
     }
     .club-card:hover {
       transform: translateY(-5px) scale(1.05);
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
     }
-    /* Stiluri pentru pop-up (modal) */
     .modal {
-      display: none; /* Ascuns inițial */
+      display: none;
       position: fixed;
-      z-index: 1000; /* Peste tot altceva */
+      z-index: 1000;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0, 0, 0, 0.7); /* Fundal semi-transparent */
-      backdrop-filter: blur(5px); /* Efect de blur pe fundal */
-      -webkit-backdrop-filter: blur(5px); /* Pentru compatibilitate Webkit */
+      background-color: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
       justify-content: center;
       align-items: center;
     }
     .modal-content {
-      background-color: #1a202c; /* fundal gri închis, similar cu cardurile */
+      background-color: #1a202c;
       margin: auto;
       padding: 30px;
       border-radius: 8px;
@@ -103,9 +102,9 @@
         <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-24 h-24 mb-2" alt="Poli Timisoara">
         <span class="font-semibold text-lg">Poli Timisoara</span>
       </div>
-      <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="Rapid Bucuresti">
-        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-24 h-24 mb-2" alt="Rapid Bucuresti">
-        <span class="font-semibold text-lg">Rapid Bucuresti</span>
+      <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="FCSB">
+        <img src="Teams/FCSB.png" class="w-24 h-24 mb-2" alt="FCSB">
+        <span class="font-semibold text-lg">FCSB</span>
       </div>
       <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="Universitatea Craiova">
         <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-24 h-24 mb-2" alt="Universitatea Craiova">
@@ -127,7 +126,7 @@
       <span class="close-button">&times;</span>
       <h3 id="modalTeamName" class="text-2xl font-bold mb-4 text-green-400"></h3>
       <p id="modalTeamInfo" class="text-lg"></p>
-      </div>
+    </div>
   </div>
 
   <script>
@@ -140,37 +139,31 @@
       const modalTeamInfo = document.getElementById("modalTeamInfo");
       const clubCards = document.querySelectorAll(".club-card");
 
-      // Adaugă event listener pentru fiecare card de echipă
       clubCards.forEach(card => {
         card.addEventListener("click", () => {
           const teamName = card.getAttribute("data-team");
           modalTeamName.textContent = teamName;
-          // Aici poți adăuga logica pentru a afișa informații reale
-          // De exemplu, un obiect JS cu date hardcodate pentru fiecare echipă:
+
           const teamDetails = {
             "Sepsi": "Clubul ACS Sepsi OSK Sfântu Gheorghe, fondat în 2011, reprezintă orașul Sfântu Gheorghe. Are o bază de fani puternică și a cunoscut o ascensiune rapidă în fotbalul românesc.",
             "Unirea Slobozia": "AFC Unirea Slobozia este un club de fotbal din Slobozia, județul Ialomița. Echipa își dispută meciurile de acasă pe Stadionul 1 Mai și are o istorie bogată în ligile inferioare.",
             "U Cluj": "FC Universitatea Cluj este un club legendar cu o istorie lungă și o tradiție importantă în fotbalul românesc. Fondat în 1919, clubul este susținut de o comunitate de fani pasionați.",
             "Fc Vaslui": "FC Vaslui a fost un club de fotbal din Vaslui, activ în special în anii 2000. Echipa a avut performanțe notabile în Liga 1 și în competițiile europene.",
             "Poli Timisoara": "SS Politehnica Timișoara este un club de tradiție din vestul României, reprezentând orașul Timișoara. Echipa este cunoscută pentru istoria sa complexă și pentru fanii dedicați.",
-            "Rapid Bucuresti": "FC Rapid București este unul dintre cele mai populare și vechi cluburi din România, fondat în 1923. Cunoscut pentru spiritul său feroviar și fanii devotați, Rapid are o istorie plină de succese.",
+            "FCSB": "FCSB este unul dintre cele mai titrate cluburi din România, continuatoarea de facto a fostei Steaua București. Clubul are numeroase titluri interne și o istorie bogată în competițiile europene.",
             "Universitatea Craiova": "Universitatea Craiova, cunoscută și sub numele de Știința, este un club emblematic din Oltenia, cu o istorie deosebită și numeroase trofee câștigate. Are o bază mare de suporteri.",
             "Farul Constanta": "FC Farul Constanța este un club de fotbal din Constanța, reprezentând litoralul românesc. Echipa joacă pe Stadionul Central și își propune să devină o forță în fotbalul autohton."
           };
 
-          // Verifică dacă există detalii pentru echipa selectată, altfel afișează un mesaj generic
           modalTeamInfo.textContent = teamDetails[teamName] || `Nu sunt disponibile detalii suplimentare pentru ${teamName}.`;
-
-          modal.style.display = "flex"; // Afișează pop-up-ul
+          modal.style.display = "flex";
         });
       });
 
-      // Închide pop-up-ul când se dă click pe butonul de închidere (X)
       closeButton.addEventListener("click", () => {
         modal.style.display = "none";
       });
 
-      // Închide pop-up-ul când se dă click în afara conținutului său
       window.addEventListener("click", (event) => {
         if (event.target === modal) {
           modal.style.display = "none";
