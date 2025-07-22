@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RL1 Romania - Acasă</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-gray-900 text-white fade-in">
+
+  <!-- Header -->
+  <header class="bg-green-700 shadow-lg sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <img src="img/logo.png" alt="RL1 Romania" class="w-10 h-10">
+        <span class="text-xl font-bold">RL1 Romania</span>
+      </div>
+      <nav class="hidden md:flex gap-6">
+        <a href="#" class="hover:text-gray-300 transition">Acasă</a>
+        <a href="Cluburi.html" class="hover:text-gray-300 transition">Cluburi</a>
+        <a href="Clasament.html" class="hover:text-gray-300 transition">Clasament</a>
+        <a href="program.html" class="hover:text-gray-300 transition">Program</a>
+        <a href="Contact.html" class="hover:text-gray-300 transition">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="relative h-screen bg-cover bg-center fade-in-up" style="background-image: url('img/stadium.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+      <div class="text-center">
+        <h1 class="text-5xl font-extrabold text-green-400 mb-4">Bun venit pe RL1 Romania</h1>
+        <p class="text-lg text-gray-200">Server de Discord: <a href="https://discord.gg/BUxQTaYgYx" class="underline hover:text-green-300">https://discord.gg/BUxQTaYgYx</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Card -->
+  <section class="py-16 px-6 md:px-20 fade-in-up">
+    <div class="max-w-6xl mx-auto bg-gray-800 hover:shadow-2xl transition-shadow rounded-xl p-8 flex flex-col md:flex-row gap-8">
+      <img src="img/logo.png" style="height: 100px; width: 100px;" class="rounded-lg w-full md:w-1/2" alt="">
+      <div>
+        <h2 class="text-3xl font-bold text-green-400">Un nou inceput pentru Liga 1</h2>
+        <p class="mt-4 text-gray-300">RL 1 Romania pregateste un nou sezon de Liga 1 plin de echipe competitive.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slider cu Meciuri -->
+  <section class="py-12 fade-in-up">
+    <h2 class="text-center text-2xl font-bold mb-6">Meciurile Etapei</h2>
+    <div class="max-w-6xl mx-auto overflow-x-auto whitespace-nowrap space-x-6 px-4">
+      <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
+        <h3 class="text-green-300">Sepsi vs Unirea Slobozia</h3>
+        <p class="text-gray-400 text-sm">Joi, 24 iulie</p>
+      </div>
+      <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
+        <h3 class="text-green-300">U cluj vs Fc Vaslui</h3>
+        <p class="text-gray-400 text-sm">Joi, 24 iulie</p>
+      </div>
+            <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
+        <h3 class="text-green-300">Poli Timisora vs Rapid Bucuresti</h3>
+        <p class="text-gray-400 text-sm">Vineri, 25 iulie</p>
+      </div>
+            <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
+        <h3 class="text-green-300">Universitatea Craiova vc Farul Constanta</h3>
+        <p class="text-gray-400 text-sm">Vineri, 25 iulie</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo-uri echipe -->
+  <section class="py-12 bg-gray-800 fade-in-up">
+    <h2 class="text-center text-xl font-semibold mb-4">Cluburi RL1 Romania</h2>
+    <div class="flex flex-wrap justify-center items-center gap-6 px-4">
+      <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/U_Cluj.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <!-- Adaugă restul echipelor -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-center py-6 text-sm text-gray-400">
+    © 2025 RL1 Romania. Toate drepturile rezervate.
+  </footer>
+
+  <script>
+    // Fade-in la încărcare
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+      document.querySelectorAll(".fade-in-up").forEach((el, i) => {
+        setTimeout(() => el.classList.add("opacity-100", "translate-y-0"), 300 + i * 150);
+      });
+    });
+  </script>
+</body>
+</html>

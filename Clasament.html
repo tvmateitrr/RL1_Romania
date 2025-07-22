@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clasament - RL1 Romania Sezonul 3</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+    body.fade-in {
+      opacity: 1;
+    }
+    /* Stiluri specifice pentru tabel */
+    .table-container {
+      background-color: #1a202c;
+      border-radius: 8px;
+      overflow: hidden; /* Asigură că marginile rotunjite funcționează cu tabelul */
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+    .clasament-table {
+      width: 100%;
+      border-collapse: collapse; /* Elimină spațiile dintre celule */
+    }
+    .clasament-table th,
+    .clasament-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #2d3748; /* Linie sub celule */
+    }
+    .clasament-table th {
+      background-color: #2d3748; /* Culoare de fundal pentru headere */
+      color: #cbd5e0; /* Culoare text header */
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9em;
+    }
+    .clasament-table tr:last-child td {
+      border-bottom: none; /* Elimină linia de jos pentru ultima rând */
+    }
+    .clasament-table tbody tr:hover {
+      background-color: #2a3340; /* Culoare de fundal la hover pe rând */
+    }
+    .team-logo {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white fade-in">
+  <header class="bg-green-700 sticky top-0 shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">RL1 Romania - Clasament Sezonul 3</h1>
+      <a href="index.html" class="text-sm text-white hover:underline">&larr; Înapoi la Acasă</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-8 text-center text-green-400">Clasament Liga 1 RL1 Sezonul 3</h2>
+
+    <div class="table-container">
+      <table class="clasament-table">
+        <thead>
+          <tr>
+            <th>Loc</th>
+            <th>Echipa</th>
+            <th>Puncte</th>
+            <th>GD</th>
+          </tr>
+        </thead>
+        <tbody id="clasament-body">
+          </tbody>
+      </table>
+    </div>
+  </main>
+
+  <footer class="text-center py-6 text-sm text-gray-500">
+    © 2025 RL1 Romania - Toate drepturile rezervate
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+
+      // Datele echipelor (ACESTEA SUNT DATE STATICE ȘI TREBUIE ACTUALIZATE MANUAL!)
+      // Toate echipele pornesc acum cu 0 puncte și 0 GD.
+      const teamsData = [
+        { name: "Rapid Bucuresti", puncte: 0, gd: 0, logo: "Teams/FC_Rapid_Bucuresti.svg.png" },
+        { name: "Sepsi", puncte: 0, gd: 0, logo: "Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" },
+        { name: "U Cluj", puncte: 0, gd: 0, logo: "Teams/U_Cluj.svg.png" },
+        { name: "Farul Constanta", puncte: 0, gd: 0, logo: "Teams/FC_Farul_Constanta.svg.png" },
+        { name: "Poli Timisoara", puncte: 0, gd: 0, logo: "Teams/SS_Politehnica_Timisoara_logo.svg.png" },
+        { name: "Unirea Slobozia", puncte: 0, gd: 0, logo: "Teams/AFC_Unirea_Slobozia.png" },
+        { name: "Universitatea Craiova", puncte: 0, gd: 0, logo: "Teams/CS_Universitatea_Craiova_logo.svg.png" },
+        { name: "Fc Vaslui", puncte: 0, gd: 0, logo: "Teams/FC_Vaslui.svg.png" }
+      ];
+
+      // Funcția de sortare a echipelor
+      // Va sorta corect chiar și cu 0 puncte/GD, menținând ordinea inițială dacă totul este egal
+      teamsData.sort((a, b) => {
+        if (a.puncte !== b.puncte) {
+          return b.puncte - a.puncte;
+        }
+        return b.gd - a.gd;
+      });
+
+      const clasamentBody = document.getElementById("clasament-body");
+
+      // Generează rândurile tabelului
+      teamsData.forEach((team, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>
+            <img src="${team.logo}" alt="${team.name}" class="team-logo inline-block">
+            ${team.name}
+          </td>
+          <td>${team.puncte}</td>
+          <td>${team.gd}</td>
+        `;
+        clasamentBody.appendChild(row);
+      });
+    });
+  </script>
+</body>
+</html>

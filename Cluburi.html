@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cluburi - RL1 Romania Sezonul 3</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+    body.fade-in {
+      opacity: 1;
+    }
+    .club-card {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      cursor: pointer; /* Adaugă un indicator vizual că elementul este clickabil */
+    }
+    .club-card:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    }
+    /* Stiluri pentru pop-up (modal) */
+    .modal {
+      display: none; /* Ascuns inițial */
+      position: fixed;
+      z-index: 1000; /* Peste tot altceva */
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7); /* Fundal semi-transparent */
+      backdrop-filter: blur(5px); /* Efect de blur pe fundal */
+      -webkit-backdrop-filter: blur(5px); /* Pentru compatibilitate Webkit */
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #1a202c; /* fundal gri închis, similar cu cardurile */
+      margin: auto;
+      padding: 30px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      position: relative;
+      animation-name: animatetop;
+      animation-duration: 0.4s;
+      color: white;
+    }
+    .close-button {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 15px;
+    }
+    .close-button:hover,
+    .close-button:focus {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    @keyframes animatetop {
+      from {top: -300px; opacity: 0}
+      to {top: 0; opacity: 1}
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white fade-in">
+  <header class="bg-green-700 sticky top-0 shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">RL1 Romania - Cluburi Sezonul 3</h1>
+      <a href="index.html" class="text-sm text-white hover:underline">&larr; Înapoi la Acasă</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-8 text-center text-green-400">Cluburi Participante</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
+      <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="Sepsi">
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-24 h-24 mb-2" alt="Sepsi">
+        <span class="font-semibold text-lg">Sepsi</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="Unirea Slobozia">
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-24 h-24 mb-2" alt="Unirea Slobozia">
+        <span class="font-semibold text-lg">Unirea Slobozia</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="U Cluj">
+        <img src="Teams/U_Cluj.svg.png" class="w-24 h-24 mb-2" alt="U Cluj">
+        <span class="font-semibold text-lg">U Cluj</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="Fc Vaslui">
+        <img src="Teams/FC_Vaslui.svg.png" class="w-24 h-24 mb-2" alt="Fc Vaslui">
+        <span class="font-semibold text-lg">Fc Vaslui</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="Poli Timisoara">
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-24 h-24 mb-2" alt="Poli Timisoara">
+        <span class="font-semibold text-lg">Poli Timisoara</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="Rapid Bucuresti">
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-24 h-24 mb-2" alt="Rapid Bucuresti">
+        <span class="font-semibold text-lg">Rapid Bucuresti</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="Universitatea Craiova">
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-24 h-24 mb-2" alt="Universitatea Craiova">
+        <span class="font-semibold text-lg">Universitatea Craiova</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex flex-col items-center justify-center text-center club-card" data-team="Farul Constanta">
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-24 h-24 mb-2" alt="Farul Constanta">
+        <span class="font-semibold text-lg">Farul Constanta</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-6 text-sm text-gray-500">
+    © 2025 RL1 Romania - Toate drepturile rezervate
+  </footer>
+
+  <div id="teamModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h3 id="modalTeamName" class="text-2xl font-bold mb-4 text-green-400"></h3>
+      <p id="modalTeamInfo" class="text-lg"></p>
+      </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+
+      const modal = document.getElementById("teamModal");
+      const closeButton = document.querySelector(".close-button");
+      const modalTeamName = document.getElementById("modalTeamName");
+      const modalTeamInfo = document.getElementById("modalTeamInfo");
+      const clubCards = document.querySelectorAll(".club-card");
+
+      // Adaugă event listener pentru fiecare card de echipă
+      clubCards.forEach(card => {
+        card.addEventListener("click", () => {
+          const teamName = card.getAttribute("data-team");
+          modalTeamName.textContent = teamName;
+          // Aici poți adăuga logica pentru a afișa informații reale
+          // De exemplu, un obiect JS cu date hardcodate pentru fiecare echipă:
+          const teamDetails = {
+            "Sepsi": "Clubul ACS Sepsi OSK Sfântu Gheorghe, fondat în 2011, reprezintă orașul Sfântu Gheorghe. Are o bază de fani puternică și a cunoscut o ascensiune rapidă în fotbalul românesc.",
+            "Unirea Slobozia": "AFC Unirea Slobozia este un club de fotbal din Slobozia, județul Ialomița. Echipa își dispută meciurile de acasă pe Stadionul 1 Mai și are o istorie bogată în ligile inferioare.",
+            "U Cluj": "FC Universitatea Cluj este un club legendar cu o istorie lungă și o tradiție importantă în fotbalul românesc. Fondat în 1919, clubul este susținut de o comunitate de fani pasionați.",
+            "Fc Vaslui": "FC Vaslui a fost un club de fotbal din Vaslui, activ în special în anii 2000. Echipa a avut performanțe notabile în Liga 1 și în competițiile europene.",
+            "Poli Timisoara": "SS Politehnica Timișoara este un club de tradiție din vestul României, reprezentând orașul Timișoara. Echipa este cunoscută pentru istoria sa complexă și pentru fanii dedicați.",
+            "Rapid Bucuresti": "FC Rapid București este unul dintre cele mai populare și vechi cluburi din România, fondat în 1923. Cunoscut pentru spiritul său feroviar și fanii devotați, Rapid are o istorie plină de succese.",
+            "Universitatea Craiova": "Universitatea Craiova, cunoscută și sub numele de Știința, este un club emblematic din Oltenia, cu o istorie deosebită și numeroase trofee câștigate. Are o bază mare de suporteri.",
+            "Farul Constanta": "FC Farul Constanța este un club de fotbal din Constanța, reprezentând litoralul românesc. Echipa joacă pe Stadionul Central și își propune să devină o forță în fotbalul autohton."
+          };
+
+          // Verifică dacă există detalii pentru echipa selectată, altfel afișează un mesaj generic
+          modalTeamInfo.textContent = teamDetails[teamName] || `Nu sunt disponibile detalii suplimentare pentru ${teamName}.`;
+
+          modal.style.display = "flex"; // Afișează pop-up-ul
+        });
+      });
+
+      // Închide pop-up-ul când se dă click pe butonul de închidere (X)
+      closeButton.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+      // Închide pop-up-ul când se dă click în afara conținutului său
+      window.addEventListener("click", (event) => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

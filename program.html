@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program - RL1 Romania Sezonul 3</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      opacity: 0; /* Pornește cu opacitate 0 (invizibil) */
+      transition: opacity 1s ease-in; /* Definește o tranziție lină de 1 secundă pentru opacitate */
+    }
+    body.fade-in {
+      opacity: 1; /* Când clasa 'fade-in' este adăugată, opacitatea devine 1 (vizibil) */
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white fade-in">
+  <header class="bg-green-700 sticky top-0 shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">RL1 Romania - Program Sezonul 3</h1>
+      <a href="index.html" class="text-sm text-white hover:underline">&larr; Înapoi la Acasă</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-8 text-center text-green-400">Toate Meciurile</h2>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="font-semibold">Sepsi</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Unirea Slobozia</span>
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="ml-auto text-gray-400 text-sm">Match 1</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="font-semibold">U Cluj</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Fc Vaslui</span>
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="ml-auto text-gray-400 text-sm">Match 2</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="font-semibold">Poli Timisoara</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="ml-auto text-gray-400 text-sm">Match 3</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="font-semibold">Universitatea Craiova</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Farul Constanta</span>
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="ml-auto text-gray-400 text-sm">Match 4</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="font-semibold">Fc Vaslui</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Sepsi</span>
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="ml-auto text-gray-400 text-sm">Match 5</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Unirea Slobozia</span>
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="ml-auto text-gray-400 text-sm">Match 6</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="font-semibold">Farul Constanta</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">U Cluj</span>
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="ml-auto text-gray-400 text-sm">Match 7</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="font-semibold">Universitatea Craiova</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Poli Timisoara</span>
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="ml-auto text-gray-400 text-sm">Match 8</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="font-semibold">Sepsi</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="ml-auto text-gray-400 text-sm">Match 9</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="font-semibold">Fc Vaslui</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Farul Constanta</span>
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="ml-auto text-gray-400 text-sm">Match 10</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="font-semibold">Unirea Slobozia</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Universitatea Craiova</span>
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="ml-auto text-gray-400 text-sm">Match 11</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="font-semibold">U Cluj</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Poli Timisoara</span>
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="ml-auto text-gray-400 text-sm">Match 12</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="font-semibold">Farul Constanta</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Sepsi</span>
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="ml-auto text-gray-400 text-sm">Match 13</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Universitatea Craiova</span>
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="ml-auto text-gray-400 text-sm">Match 14</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="font-semibold">Poli Timisoara</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Fc Vaslui</span>
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="ml-auto text-gray-400 text-sm">Match 15</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="font-semibold">Unirea Slobozia</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">U Cluj</span>
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="ml-auto text-gray-400 text-sm">Match 16</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="font-semibold">Sepsi</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Universitatea Craiova</span>
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="ml-auto text-gray-400 text-sm">Match 17</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="font-semibold">Farul Constanta</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Poli Timisoara</span>
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="ml-auto text-gray-400 text-sm">Match 18</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">U Cluj</span>
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="ml-auto text-gray-400 text-sm">Match 19</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="font-semibold">Fc Vaslui</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Unirea Slobozia</span>
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="ml-auto text-gray-400 text-sm">Match 20</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="font-semibold">Poli Timisoara</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Sepsi</span>
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="ml-auto text-gray-400 text-sm">Match 21</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="font-semibold">U Cluj</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Universitatea Craiova</span>
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="ml-auto text-gray-400 text-sm">Match 22</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="font-semibold">Unirea Slobozia</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Farul Constanta</span>
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="ml-auto text-gray-400 text-sm">Match 23</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="font-semibold">Fc Vaslui</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="ml-auto text-gray-400 text-sm">Match 24</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="font-semibold">Sepsi</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">U Cluj</span>
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="ml-auto text-gray-400 text-sm">Match 25</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="font-semibold">Poli Timisoara</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Unirea Slobozia</span>
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="ml-auto text-gray-400 text-sm">Match 26</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="font-semibold">Universitatea Craiova</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Fc Vaslui</span>
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="ml-auto text-gray-400 text-sm">Match 27</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="font-semibold">Farul Constanta</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="ml-auto text-gray-400 text-sm">Match 28</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="font-semibold">Unirea Slobozia</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Sepsi</span>
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="ml-auto text-gray-400 text-sm">Match 29</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="font-semibold">U Cluj</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Fc Vaslui</span>
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="ml-auto text-gray-400 text-sm">Match 30</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Poli Timisoara</span>
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="ml-auto text-gray-400 text-sm">Match 31</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="font-semibold">Universitatea Craiova</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Farul Constanta</span>
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="ml-auto text-gray-400 text-sm">Match 32</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="font-semibold">Sepsi</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Fc Vaslui</span>
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="ml-auto text-gray-400 text-sm">Match 33</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="font-semibold">Unirea Slobozia</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="ml-auto text-gray-400 text-sm">Match 34</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="font-semibold">U Cluj</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Farul Constanta</span>
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="ml-auto text-gray-400 text-sm">Match 35</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="font-semibold">Poli Timisoara</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Universitatea Craiova</span>
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="ml-auto text-gray-400 text-sm">Match 36</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Sepsi</span>
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="ml-auto text-gray-400 text-sm">Match 37</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="font-semibold">Farul Constanta</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Fc Vaslui</span>
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="ml-auto text-gray-400 text-sm">Match 38</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="font-semibold">Universitatea Craiova</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Unirea Slobozia</span>
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="ml-auto text-gray-400 text-sm">Match 39</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="font-semibold">Poli Timisoara</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">U Cluj</span>
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="ml-auto text-gray-400 text-sm">Match 40</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="font-semibold">Sepsi</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Farul Constanta</span>
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="ml-auto text-gray-400 text-sm">Match 41</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Universitatea Craiova</span>
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="ml-auto text-gray-400 text-sm">Match 42</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="font-semibold">Fc Vaslui</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Poli Timisoara</span>
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="ml-auto text-gray-400 text-sm">Match 43</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="font-semibold">Unirea Slobozia</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">U Cluj</span>
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="ml-auto text-gray-400 text-sm">Match 44</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="font-semibold">Universitatea Craiova</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Sepsi</span>
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="ml-auto text-gray-400 text-sm">Match 45</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="font-semibold">Farul Constanta</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Poli Timisoara</span>
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="ml-auto text-gray-400 text-sm">Match 46</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="font-semibold">U Cluj</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="ml-auto text-gray-400 text-sm">Match 47</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="font-semibold">Fc Vaslui</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Unirea Slobozia</span>
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="ml-auto text-gray-400 text-sm">Match 48</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="font-semibold">Sepsi</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Poli Timisoara</span>
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="ml-auto text-gray-400 text-sm">Match 49</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="font-semibold">Universitatea Craiova</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">U Cluj</span>
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="ml-auto text-gray-400 text-sm">Match 50</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="font-semibold">Farul Constanta</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Unirea Slobozia</span>
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="ml-auto text-gray-400 text-sm">Match 51</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Fc Vaslui</span>
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="ml-auto text-gray-400 text-sm">Match 52</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/U_Cluj.svg.png" class="w-12 h-12" alt="U Cluj">
+        <span class="font-semibold">U Cluj</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Sepsi</span>
+        <img src="Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" class="w-12 h-12" alt="Sepsi">
+        <span class="ml-auto text-gray-400 text-sm">Match 53</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12" alt="Unirea Slobozia">
+        <span class="font-semibold">Unirea Slobozia</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Poli Timisoara</span>
+        <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12" alt="Poli Timisoara">
+        <span class="ml-auto text-gray-400 text-sm">Match 54</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12" alt="Fc Vaslui">
+        <span class="font-semibold">Fc Vaslui</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Universitatea Craiova</span>
+        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12" alt="Universitatea Craiova">
+        <span class="ml-auto text-gray-400 text-sm">Match 55</span>
+      </div>
+      <div class="bg-gray-800 rounded-lg p-4 flex items-center gap-4 hover:shadow-lg transition">
+        <img src="Teams/FC_Rapid_Bucuresti.svg.png" class="w-12 h-12" alt="Rapid Bucuresti">
+        <span class="font-semibold">Rapid Bucuresti</span>
+        <span class="text-green-400 font-bold">vs</span>
+        <span class="font-semibold">Farul Constanta</span>
+        <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12" alt="Farul Constanta">
+        <span class="ml-auto text-gray-400 text-sm">Match 56</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center py-6 text-sm text-gray-500">
+    © 2025 RL1 Romania - Toate drepturile rezervate
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+    });
+  </script>
+</body>
+</html>
