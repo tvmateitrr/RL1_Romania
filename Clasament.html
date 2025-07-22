@@ -13,41 +13,69 @@
     body.fade-in {
       opacity: 1;
     }
-    /* Stiluri specifice pentru tabel */
+
     .table-container {
       background-color: #1a202c;
       border-radius: 8px;
-      overflow: hidden; /* Asigură că marginile rotunjite funcționează cu tabelul */
+      overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     }
+
     .clasament-table {
       width: 100%;
-      border-collapse: collapse; /* Elimină spațiile dintre celule */
+      border-collapse: collapse;
     }
+
     .clasament-table th,
     .clasament-table td {
       padding: 12px 15px;
       text-align: left;
-      border-bottom: 1px solid #2d3748; /* Linie sub celule */
+      border-bottom: 1px solid #2d3748;
     }
+
     .clasament-table th {
-      background-color: #2d3748; /* Culoare de fundal pentru headere */
-      color: #cbd5e0; /* Culoare text header */
+      background-color: #2d3748;
+      color: #cbd5e0;
       font-weight: bold;
       text-transform: uppercase;
       font-size: 0.9em;
     }
+
     .clasament-table tr:last-child td {
-      border-bottom: none; /* Elimină linia de jos pentru ultima rând */
+      border-bottom: none;
     }
+
     .clasament-table tbody tr:hover {
-      background-color: #2a3340; /* Culoare de fundal la hover pe rând */
+      background-color: #2a3340;
     }
+
     .team-logo {
       width: 30px;
       height: 30px;
       vertical-align: middle;
       margin-right: 8px;
+    }
+
+    /* Evidențieri + hover */
+    .row-campion {
+      background-color: #22543d !important;
+    }
+    .row-campion:hover {
+      background-color: #276749 !important;
+    }
+
+    .row-baraj {
+      background-color: #744210 !important;
+    }
+    .row-baraj:hover {
+      background-color: #975a16 !important;
+    }
+
+    .row-retrogradare {
+      background-color: #742a2a !important;
+    }
+    .row-retrogradare:hover {
+      background-color: #9b2c2c !important;
     }
   </style>
 </head>
@@ -72,9 +100,15 @@
             <th>GD</th>
           </tr>
         </thead>
-        <tbody id="clasament-body">
-          </tbody>
+        <tbody id="clasament-body"></tbody>
       </table>
+    </div>
+
+    <!-- Legenda -->
+    <div class="mt-6 text-sm text-gray-300 space-y-1">
+      <p><span class="inline-block w-4 h-4 bg-green-900 mr-2"></span>Campioana (Locul 1)</p>
+      <p><span class="inline-block w-4 h-4 bg-yellow-800 mr-2"></span>Baraj menținere (Locurile 6–7)</p>
+      <p><span class="inline-block w-4 h-4 bg-red-900 mr-2"></span>Retrogradare directă (Locul 8)</p>
     </div>
   </main>
 
@@ -86,8 +120,6 @@
     document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("fade-in");
 
-      // Datele echipelor (ACESTEA SUNT DATE STATICE ȘI TREBUIE ACTUALIZATE MANUAL!)
-      // Toate echipele pornesc acum cu 0 puncte și 0 GD.
       const teamsData = [
         { name: "Rapid Bucuresti", puncte: 0, gd: 0, logo: "Teams/FC_Rapid_Bucuresti.svg.png" },
         { name: "Sepsi", puncte: 0, gd: 0, logo: "Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" },
@@ -99,20 +131,22 @@
         { name: "Fc Vaslui", puncte: 0, gd: 0, logo: "Teams/FC_Vaslui.svg.png" }
       ];
 
-      // Funcția de sortare a echipelor
-      // Va sorta corect chiar și cu 0 puncte/GD, menținând ordinea inițială dacă totul este egal
+      // Sortare clasament
       teamsData.sort((a, b) => {
-        if (a.puncte !== b.puncte) {
-          return b.puncte - a.puncte;
-        }
+        if (a.puncte !== b.puncte) return b.puncte - a.puncte;
         return b.gd - a.gd;
       });
 
       const clasamentBody = document.getElementById("clasament-body");
 
-      // Generează rândurile tabelului
       teamsData.forEach((team, index) => {
         const row = document.createElement("tr");
+
+        // Evidențiere poziții
+        if (index === 0) row.classList.add("row-campion");
+        else if (index >= teamsData.length - 3 && index < teamsData.length - 1) row.classList.add("row-baraj");
+        else if (index === teamsData.length - 1) row.classList.add("row-retrogradare");
+
         row.innerHTML = `
           <td>${index + 1}</td>
           <td>
