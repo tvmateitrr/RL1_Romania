@@ -16,6 +16,17 @@
         <img src="img/logo.png" alt="RL1 Romania" class="w-10 h-10">
         <span class="text-xl font-bold">RL1 Romania</span>
       </div>
+
+      <!-- Buton meniu mobil -->
+      <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <!-- Meniu desktop -->
       <nav class="hidden md:flex gap-6">
         <a href="#" class="hover:text-gray-300 transition">Acasă</a>
         <a href="Cluburi.html" class="hover:text-gray-300 transition">Cluburi</a>
@@ -23,6 +34,15 @@
         <a href="program.html" class="hover:text-gray-300 transition">Program</a>
         <a href="Contact.html" class="hover:text-gray-300 transition">Contact</a>
       </nav>
+    </div>
+
+    <!-- Meniu mobil -->
+    <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
+      <a href="#" class="block py-2 text-white hover:text-gray-300">Acasă</a>
+      <a href="Cluburi.html" class="block py-2 text-white hover:text-gray-300">Cluburi</a>
+      <a href="Clasament.html" class="block py-2 text-white hover:text-gray-300">Clasament</a>
+      <a href="program.html" class="block py-2 text-white hover:text-gray-300">Program</a>
+      <a href="Contact.html" class="block py-2 text-white hover:text-gray-300">Contact</a>
     </div>
   </header>
 
@@ -56,15 +76,15 @@
         <p class="text-gray-400 text-sm">Joi, 24 iulie</p>
       </div>
       <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
-        <h3 class="text-green-300">U cluj vs Fc Vaslui</h3>
+        <h3 class="text-green-300">U Cluj vs FC Vaslui</h3>
         <p class="text-gray-400 text-sm">Joi, 24 iulie</p>
       </div>
-            <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
-        <h3 class="text-green-300">Poli Timisora vs FCSB</h3>
+      <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
+        <h3 class="text-green-300">Poli Timișoara vs FCSB</h3>
         <p class="text-gray-400 text-sm">Vineri, 25 iulie</p>
       </div>
-            <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
-        <h3 class="text-green-300">Universitatea Craiova vc Farul Constanta</h3>
+      <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
+        <h3 class="text-green-300">Universitatea Craiova vs Rapid București</h3>
         <p class="text-gray-400 text-sm">Vineri, 25 iulie</p>
       </div>
     </div>
@@ -74,7 +94,7 @@
   <section class="py-12 bg-gray-800 fade-in-up">
     <h2 class="text-center text-xl font-semibold mb-4">Cluburi RL1 Romania</h2>
     <div class="flex flex-wrap justify-center items-center gap-6 px-4">
-      <img src="Teams/FC_Farul_Constanta.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/FC_Rapid_1923_logo.png" class="w-12 h-12 transition-transform transform hover:scale-125">
       <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
       <img src="Teams/U_Cluj.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
       <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
@@ -91,13 +111,20 @@
     © 2025 RL1 Romania. Toate drepturile rezervate.
   </footer>
 
+  <!-- Script fade-in și meniu mobil -->
   <script>
-    // Fade-in la încărcare
+    // Fade-in animatie
     document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("fade-in");
       document.querySelectorAll(".fade-in-up").forEach((el, i) => {
         setTimeout(() => el.classList.add("opacity-100", "translate-y-0"), 300 + i * 150);
       });
+    });
+
+    // Toggle meniu mobil
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.toggle("hidden");
     });
   </script>
 </body>
