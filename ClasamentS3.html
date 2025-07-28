@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clasament - RL1 Romania Sezonul 3</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+    body.fade-in {
+      opacity: 1;
+    }
+
+    .table-container {
+      background-color: #1a202c;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .clasament-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .clasament-table th,
+    .clasament-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #2d3748;
+    }
+
+    .clasament-table th {
+      background-color: #2d3748;
+      color: #cbd5e0;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.9em;
+    }
+
+    .clasament-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .clasament-table tbody tr:hover {
+      background-color: #2a3340;
+    }
+
+    .team-logo {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    /* Evidențieri */
+    .row-campion {
+      background-color: #22543d !important;
+    }
+    .row-campion:hover {
+      background-color: #276749 !important;
+    }
+
+    .row-baraj {
+      background-color: #744210 !important;
+    }
+    .row-baraj:hover {
+      background-color: #975a16 !important;
+    }
+
+    .row-retrogradare {
+      background-color: #742a2a !important;
+    }
+    .row-retrogradare:hover {
+      background-color: #9b2c2c !important;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #2d3748;
+      min-width: 180px;
+      border-radius: 0.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(-10px);
+      pointer-events: none;
+      transition: all 0.3s ease;
+      z-index: 50;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .dropdown-menu a {
+      color: #fff;
+      padding: 12px 16px;
+      display: block;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #4a5568;
+    }
+
+    .dropdown-toggle {
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .dropdown-toggle:hover {
+      color: #c6f6d5;
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white fade-in">
+  <header class="bg-green-700 sticky top-0 shadow z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center relative">
+      <!-- Dropdown Sezoane -->
+      <div class="dropdown">
+        <h1 class="text-2xl font-bold dropdown-toggle">RL1 Romania - Clasament Sezonul 3</h1>
+        <div class="dropdown-menu">
+          <a href="ClasamentS1.html">Sezonul 1</a>
+          <a href="ClasamentS2.html">Sezonul 2</a>
+          <a href="ClasamentS3.html">Sezonul 3</a>
+        </div>
+      </div>
+
+      <a href="index.html" class="text-sm text-white hover:underline">&larr; Înapoi la Acasă</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-3xl font-bold mb-8 text-center text-green-400">Clasament Liga 1 RL1 Sezonul 3</h2>
+
+    <div class="table-container">
+      <table class="clasament-table">
+        <thead>
+          <tr>
+            <th>Loc</th>
+            <th>Echipa</th>
+            <th>Puncte</th>
+            <th>GD</th>
+            <th>MJ</th>
+          </tr>
+        </thead>
+        <tbody id="clasament-body"></tbody>
+      </table>
+    </div>
+
+    <!-- Legenda -->
+    <div class="mt-6 text-sm text-gray-300 space-y-1">
+      <p><span class="inline-block w-4 h-4 bg-green-900 mr-2"></span>Campioana (Locul 1)</p>
+      <p><span class="inline-block w-4 h-4 bg-yellow-800 mr-2"></span>Baraj menținere (Locurile 6–7)</p>
+      <p><span class="inline-block w-4 h-4 bg-red-900 mr-2"></span>Retrogradare directă (Locul 8)</p>
+    </div>
+  </main>
+
+  <footer class="text-center py-6 text-sm text-gray-500">
+    © 2025 RL1 Romania - Toate drepturile rezervate
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+
+      const teamsData = [
+        { name: "FCSB", puncte: 3, gd: 2, mj: 2, logo: "Teams/FCSB.png" },
+        { name: "Sepsi", puncte: 0, gd: -13, mj: 2, logo: "Teams/ACS_Sepsi_OSK_Sfantu_Gheorghe_logo.svg.png" },
+        { name: "U Cluj", puncte: 6, gd: 18, mj: 2, logo: "Teams/U_Cluj.svg.png" },
+        { name: "Rapid Bucuresti", puncte: 3, gd: -5, mj: 2, logo: "Teams/FC_Rapid_1923_logo.png" },
+        { name: "Poli Timisoara", puncte: 6, gd: 8, mj: 2, logo: "Teams/SS_Politehnica_Timisoara_logo.svg.png" },
+        { name: "Unirea Slobozia", puncte: 3, gd: 5, mj: 2, logo: "Teams/AFC_Unirea_Slobozia.png" },
+        { name: "Universitatea Craiova", puncte: 0, gd: -8, mj: 2, logo: "Teams/CS_Universitatea_Craiova_logo.svg.png" },
+        { name: "Fc Vaslui", puncte: 3, gd: -7, mj: 2, logo: "Teams/FC_Vaslui.svg.png" }
+      ];
+
+      teamsData.sort((a, b) => {
+        if (a.puncte !== b.puncte) return b.puncte - a.puncte;
+        return b.gd - a.gd;
+      });
+
+      const clasamentBody = document.getElementById("clasament-body");
+
+      teamsData.forEach((team, index) => {
+        const row = document.createElement("tr");
+
+        if (index === 0) row.classList.add("row-campion");
+        else if (index >= teamsData.length - 3 && index < teamsData.length - 1) row.classList.add("row-baraj");
+        else if (index === teamsData.length - 1) row.classList.add("row-retrogradare");
+
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>
+            <img src="${team.logo}" alt="${team.name}" class="team-logo inline-block">
+            ${team.name}
+          </td>
+          <td>${team.puncte}</td>
+          <td>${team.gd}</td>
+          <td>${team.mj}</td>
+        `;
+        clasamentBody.appendChild(row);
+      });
+    });
+  </script>
+</body>
+</html>
