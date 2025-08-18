@@ -6,19 +6,29 @@
   <title>Clasament - RL1 Romania Sezonul 3</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
+    /* Fade-in */
     body {
       opacity: 0;
       transition: opacity 1s ease-in;
+      background: linear-gradient(-45deg, #4b0082, #8a2be2, #6a0dad, #b19cd9);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
     }
     body.fade-in {
       opacity: 1;
     }
 
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     .table-container {
-      background-color: #1a202c;
-      border-radius: 8px;
+      background-color: rgba(40, 20, 60, 0.9);
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
     }
 
     .clasament-table {
@@ -30,12 +40,12 @@
     .clasament-table td {
       padding: 12px 15px;
       text-align: left;
-      border-bottom: 1px solid #2d3748;
+      border-bottom: 1px solid rgba(200, 180, 255, 0.3);
     }
 
     .clasament-table th {
-      background-color: #2d3748;
-      color: #cbd5e0;
+      background-color: rgba(80, 20, 100, 0.8);
+      color: #e0cfff;
       font-weight: bold;
       text-transform: uppercase;
       font-size: 0.9em;
@@ -46,7 +56,8 @@
     }
 
     .clasament-table tbody tr:hover {
-      background-color: #2a3340;
+      background-color: rgba(130, 50, 180, 0.6);
+      transition: background-color 0.3s ease;
     }
 
     .team-logo {
@@ -58,24 +69,24 @@
 
     /* Evidențieri */
     .row-campion {
-      background-color: #22543d !important;
+      background-color: rgba(102, 51, 153, 0.8) !important;
     }
     .row-campion:hover {
-      background-color: #276749 !important;
+      background-color: rgba(153, 102, 204, 0.8) !important;
     }
 
     .row-baraj {
-      background-color: #744210 !important;
+      background-color: rgba(153, 102, 204, 0.6) !important;
     }
     .row-baraj:hover {
-      background-color: #975a16 !important;
+      background-color: rgba(180, 132, 205, 0.8) !important;
     }
 
     .row-retrogradare {
-      background-color: #742a2a !important;
+      background-color: rgba(128, 0, 128, 0.8) !important;
     }
     .row-retrogradare:hover {
-      background-color: #9b2c2c !important;
+      background-color: rgba(186, 85, 211, 0.8) !important;
     }
 
     /* Dropdown */
@@ -87,7 +98,7 @@
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: #2d3748;
+      background-color: rgba(80, 20, 100, 0.9);
       min-width: 180px;
       border-radius: 0.5rem;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
@@ -113,7 +124,7 @@
     }
 
     .dropdown-menu a:hover {
-      background-color: #4a5568;
+      background-color: rgba(120, 80, 180, 0.8);
     }
 
     .dropdown-toggle {
@@ -122,12 +133,12 @@
     }
 
     .dropdown-toggle:hover {
-      color: #c6f6d5;
+      color: #e0cfff;
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white fade-in">
-  <header class="bg-green-700 sticky top-0 shadow z-50">
+<body class="text-white fade-in">
+  <header class="bg-purple-800 sticky top-0 shadow z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center relative">
       <!-- Dropdown Sezoane -->
       <div class="dropdown">
@@ -136,6 +147,7 @@
           <a href="ClasamentS1.html">Sezonul 1</a>
           <a href="ClasamentS2.html">Sezonul 2</a>
           <a href="ClasamentS3.html">Sezonul 3</a>
+          <a href="ClasamentS4.html">Sezonul 4</a>
         </div>
       </div>
 
@@ -144,7 +156,7 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-10">
-    <h2 class="text-3xl font-bold mb-8 text-center text-green-400">Clasament Liga 1 RL1 Sezonul 3</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center text-purple-300">Clasament Liga 1 RL1 Sezonul 3</h2>
 
     <div class="table-container">
       <table class="clasament-table">
@@ -163,13 +175,13 @@
 
     <!-- Legenda -->
     <div class="mt-6 text-sm text-gray-300 space-y-1">
-      <p><span class="inline-block w-4 h-4 bg-green-900 mr-2"></span>Campioana (Locul 1)</p>
-      <p><span class="inline-block w-4 h-4 bg-yellow-800 mr-2"></span>Baraj menținere (Locurile 6–7)</p>
-      <p><span class="inline-block w-4 h-4 bg-red-900 mr-2"></span>Retrogradare directă (Locul 8)</p>
+      <p><span class="inline-block w-4 h-4 bg-purple-700 mr-2"></span>Campioana (Locul 1)</p>
+      <p><span class="inline-block w-4 h-4 bg-purple-500 mr-2"></span>Baraj menținere (Locurile 6–7)</p>
+      <p><span class="inline-block w-4 h-4 bg-purple-900 mr-2"></span>Retrogradare directă (Locul 8)</p>
     </div>
   </main>
 
-  <footer class="text-center py-6 text-sm text-gray-500">
+  <footer class="text-center py-6 text-sm text-gray-300">
     © 2025 RL1 Romania - Toate drepturile rezervate
   </footer>
 

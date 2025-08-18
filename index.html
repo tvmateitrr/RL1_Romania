@@ -30,7 +30,7 @@
       <nav class="hidden md:flex gap-6">
         <a href="#" class="hover:text-gray-300 transition">Acasă</a>
         <a href="Cluburi.html" class="hover:text-gray-300 transition">Cluburi</a>
-        <a href="ClasamentS3.html" class="hover:text-gray-300 transition">Clasament</a>
+        <a href="ClasamentS4.html" class="hover:text-gray-300 transition">Clasament</a>
         <a href="program.html" class="hover:text-gray-300 transition">Program</a>
         <a href="Contact.html" class="hover:text-gray-300 transition">Contact</a>
       </nav>
@@ -40,18 +40,23 @@
     <div id="mobile-menu" class="md:hidden hidden px-4 pb-4">
       <a href="#" class="block py-2 text-white hover:text-gray-300">Acasă</a>
       <a href="Cluburi.html" class="block py-2 text-white hover:text-gray-300">Cluburi</a>
-      <a href="ClasamentS3.html" class="block py-2 text-white hover:text-gray-300">Clasament</a>
+      <a href="ClasamentS4.html" class="block py-2 text-white hover:text-gray-300">Clasament</a>
       <a href="program.html" class="block py-2 text-white hover:text-gray-300">Program</a>
       <a href="Contact.html" class="block py-2 text-white hover:text-gray-300">Contact</a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="relative h-screen bg-cover bg-center fade-in-up" style="background-image: url('img/stadium.jpg');">
+  <!-- Hero cu animație particule -->
+  <section class="relative h-screen bg-cover bg-center fade-in-up overflow-hidden" style="background-image: url('img/stadium.jpg');">
+    <!-- Particule animate -->
+    <canvas id="hero-canvas" class="absolute inset-0 w-full h-full"></canvas>
+
     <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-      <div class="text-center">
+      <div class="text-center z-10">
         <h1 class="text-5xl font-extrabold text-green-400 mb-4">Bun venit pe RL1 Romania</h1>
-        <p class="text-lg text-gray-200">Server de Discord: <a href="https://discord.gg/BUxQTaYgYx" class="underline hover:text-green-300">https://discord.gg/BUxQTaYgYx</a></p>
+        <p class="text-lg text-gray-200">
+          Server de Discord: <a href="https://discord.gg/BUxQTaYgYx" class="underline hover:text-green-300">https://discord.gg/BUxQTaYgYx</a>
+        </p>
       </div>
     </div>
   </section>
@@ -67,41 +72,20 @@
     </div>
   </section>
 
-  <!-- Slider cu Meciuri -->
-  <!--<section class="py-12 fade-in-up">
-    <h2 class="text-center text-2xl font-bold mb-6">Meciurile Etapei</h2>
-    <div class="max-w-6xl mx-auto overflow-x-auto whitespace-nowrap space-x-6 px-4">
-      <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
-        <h3 class="text-green-300">Sepsi vs Unirea Slobozia</h3>
-        <p class="text-gray-400 text-sm">Joi, 24 iulie</p>
-      </div>
-      <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
-        <h3 class="text-green-300">U Cluj vs FC Vaslui</h3>
-        <p class="text-gray-400 text-sm">Joi, 24 iulie</p>
-      </div>
-      <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
-        <h3 class="text-green-300">Poli Timișoara vs FCSB</h3>
-        <p class="text-gray-400 text-sm">Vineri, 25 iulie</p>
-      </div>
-      <div class="inline-block bg-gray-800 px-6 py-4 rounded-lg hover:bg-green-800 transition transform hover:scale-105 duration-300">
-        <h3 class="text-green-300">Universitatea Craiova vs Rapid București</h3>
-        <p class="text-gray-400 text-sm">Vineri, 25 iulie</p>
-      </div>
-    </div>
-  </section> 
-  Logo-uri echipe -->
-  
+  <!-- Cluburi -->
   <section class="py-12 bg-gray-800 fade-in-up">
     <h2 class="text-center text-xl font-semibold mb-4">Cluburi RL1 Romania</h2>
     <div class="flex flex-wrap justify-center items-center gap-6 px-4">
       <img src="Teams/FC_Rapid_1923_logo.png" class="w-12 h-12 transition-transform transform hover:scale-125">
       <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
-      <img src="Teams/U_Cluj.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
-      <img src="Teams/FC_Vaslui.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
-      <img src="Teams/SS_Politehnica_Timisoara_logo.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
-      <img src="Teams/AFC_Unirea_Slobozia.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/CFR_Cluj.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/FC_Arges.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/FC_Petrolul_Ploiesti.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/Metaloglobus.png" class="w-12 h-12 transition-transform transform hover:scale-125">
       <img src="Teams/FCSB.png" class="w-12 h-12 transition-transform transform hover:scale-125">
       <img src="Teams/Logo_Dinamo_București.svg.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/Ceahlaul.png" class="w-12 h-12 transition-transform transform hover:scale-125">
+      <img src="Teams/Otelullogo.png" class="w-12 h-12 transition-transform transform hover:scale-125">
       <!-- Adaugă restul echipelor -->
     </div>
   </section>
@@ -125,6 +109,50 @@
     document.getElementById("menu-toggle").addEventListener("click", function () {
       const menu = document.getElementById("mobile-menu");
       menu.classList.toggle("hidden");
+    });
+
+    // Particule animate Hero
+    const canvas = document.getElementById("hero-canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 50;
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 3 + 1,
+        dx: (Math.random() - 0.5) * 1,
+        dy: (Math.random() - 0.5) * 1
+      });
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(0,255,0,0.7)";
+        ctx.fill();
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     });
   </script>
 </body>

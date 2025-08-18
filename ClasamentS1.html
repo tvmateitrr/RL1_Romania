@@ -3,22 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clasament - RL1 Romania Sezonul 3</title>
+  <title>Clasament - RL1 Romania Sezonul 1</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <!-- Font retro -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
   <style>
     body {
+      font-family: 'Press Start 2P', cursive;
+      background: linear-gradient(270deg, #1a002b, #003153, #1a002b);
+      background-size: 600% 600%;
+      animation: gradientBG 20s ease infinite;
+      color: #e0e0e0;
       opacity: 0;
       transition: opacity 1s ease-in;
     }
-    body.fade-in {
-      opacity: 1;
+    body.fade-in { opacity: 1; }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        rgba(255,255,255,0.05) 0px,
+        rgba(255,255,255,0.05) 1px,
+        transparent 2px
+      );
+      animation: flicker 0.1s infinite;
+    }
+    @keyframes flicker {
+      0% { opacity: 0.95; }
+      50% { opacity: 1; }
+      100% { opacity: 0.9; }
     }
 
     .table-container {
-      background-color: #1a202c;
-      border-radius: 8px;
+      background-color: rgba(0,0,0,0.6);
+      border: 3px solid #0ff;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 20px #0ff;
     }
 
     .clasament-table {
@@ -28,123 +61,83 @@
 
     .clasament-table th,
     .clasament-table td {
-      padding: 12px 15px;
+      padding: 14px;
       text-align: left;
-      border-bottom: 1px solid #2d3748;
+      border-bottom: 2px solid #222;
     }
 
     .clasament-table th {
-      background-color: #2d3748;
-      color: #cbd5e0;
-      font-weight: bold;
-      text-transform: uppercase;
-      font-size: 0.9em;
+      background-color: #111;
+      color: #ff00ff;
+      text-shadow: 0 0 5px #ff00ff;
+      font-size: 0.7em;
     }
 
-    .clasament-table tr:last-child td {
-      border-bottom: none;
+    .clasament-table tbody tr {
+      transition: background 0.2s;
     }
-
     .clasament-table tbody tr:hover {
-      background-color: #2a3340;
+      background: rgba(255,255,255,0.1);
     }
 
     .team-logo {
-      width: 30px;
-      height: 30px;
-      vertical-align: middle;
+      width: 28px;
+      height: 28px;
       margin-right: 8px;
     }
 
-    /* Evidențieri */
-    .row-campion {
-      background-color: #22543d !important;
-    }
-    .row-campion:hover {
-      background-color: #276749 !important;
-    }
+    .row-campion { background: rgba(0,255,0,0.2) !important; }
+    .row-campion td { color: #00ff00; text-shadow: 0 0 5px #00ff00; }
 
-    .row-baraj {
-      background-color: #744210 !important;
-    }
-    .row-baraj:hover {
-      background-color: #975a16 !important;
-    }
+    .row-baraj { background: rgba(255,255,0,0.15) !important; }
+    .row-baraj td { color: #ffff00; text-shadow: 0 0 5px #ffff00; }
 
-    .row-retrogradare {
-      background-color: #742a2a !important;
-    }
-    .row-retrogradare:hover {
-      background-color: #9b2c2c !important;
-    }
-
-    /* Dropdown */
-    .dropdown {
-      position: relative;
-    }
+    .row-retrogradare { background: rgba(255,0,0,0.2) !important; }
+    .row-retrogradare td { color: #ff0000; text-shadow: 0 0 5px #ff0000; }
 
     .dropdown-menu {
+      display: none;
       position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #2d3748;
-      min-width: 180px;
-      border-radius: 0.5rem;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-      opacity: 0;
-      transform: translateY(-10px);
-      pointer-events: none;
-      transition: all 0.3s ease;
+      background-color: #111;
+      border: 2px solid #0ff;
+      box-shadow: 0 0 15px #0ff;
+      margin-top: 4px;
       z-index: 50;
     }
-
-    .dropdown:hover .dropdown-menu {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
     .dropdown-menu a {
-      color: #fff;
-      padding: 12px 16px;
       display: block;
-      text-decoration: none;
-      transition: background 0.2s ease;
+      font-size: 0.6em;
+      padding: 10px;
+      color: #fff;
     }
-
     .dropdown-menu a:hover {
-      background-color: #4a5568;
+      background: #0ff;
+      color: #000;
     }
 
-    .dropdown-toggle {
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-
-    .dropdown-toggle:hover {
-      color: #c6f6d5;
+    footer {
+      text-shadow: 0 0 5px #0ff;
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white fade-in">
-  <header class="bg-green-700 sticky top-0 shadow z-50">
-    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center relative">
-      <!-- Dropdown Sezoane -->
-      <div class="dropdown">
-        <h1 class="text-2xl font-bold dropdown-toggle">RL1 Romania - Clasament Sezonul 1</h1>
+<body class="fade-in">
+  <header class="bg-black border-b-4 border-pink-600 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="dropdown relative" id="sezonDropdown">
+        <h1 class="text-xl text-pink-500 cursor-pointer">🏆 RL1 Romania - Sezonul 1</h1>
         <div class="dropdown-menu">
           <a href="ClasamentS1.html">Sezonul 1</a>
           <a href="ClasamentS2.html">Sezonul 2</a>
           <a href="ClasamentS3.html">Sezonul 3</a>
+          <a href="ClasamentS4.html">Sezonul 4</a>
         </div>
       </div>
-
-      <a href="index.html" class="text-sm text-white hover:underline">&larr; Înapoi la Acasă</a>
+      <a href="index.html" class="text-pink-400 hover:text-white text-sm">&larr; Acasă</a>
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-10">
-    <h2 class="text-3xl font-bold mb-8 text-center text-green-400">Clasament Liga 1 RL1 Sezonul 3</h2>
+    <h2 class="text-2xl text-center text-yellow-300 mb-6">📊 Clasament RL1 Sezonul 1</h2>
 
     <div class="table-container">
       <table class="clasament-table">
@@ -161,22 +154,33 @@
       </table>
     </div>
 
-    <!-- Legenda -->
-    <div class="mt-6 text-sm text-gray-300 space-y-1">
-      <p><span class="inline-block w-4 h-4 bg-green-900 mr-2"></span>Campioana (Locul 1)</p>
-      <p><span class="inline-block w-4 h-4 bg-yellow-800 mr-2"></span>Baraj menținere (Locurile 6–7)</p>
-      <p><span class="inline-block w-4 h-4 bg-red-900 mr-2"></span>Retrogradare directă (Locul 8)</p>
+    <div class="mt-6 text-xs text-pink-400 space-y-2">
+      <p>🟩 Campioana</p>
+      <p>🟨 Baraj (loc 6–7)</p>
+      <p>🟥 Retrogradare (ultimul loc)</p>
     </div>
   </main>
 
-  <footer class="text-center py-6 text-sm text-gray-500">
-    © 2025 RL1 Romania - Toate drepturile rezervate
+  <footer class="text-center py-6 text-sm text-pink-500">
+    © 2025 RL1 Romania - Retro Edition 🎮
   </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("fade-in");
 
+      // Toggle dropdown la click
+      const dropdown = document.getElementById("sezonDropdown");
+      const menu = dropdown.querySelector(".dropdown-menu");
+      dropdown.querySelector("h1").addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+      });
+      document.addEventListener("click", () => {
+        menu.style.display = "none";
+      });
+
+      // Clasament
       const teamsData = [
         { name: "Rapid Bucuresti", puncte: 16, gd: 35, mj: 7, logo: "Teams/FC_Rapid_1923_logo.png" },
         { name: "Farul Constanta", puncte: 15, gd: 13, mj: 7, logo: "Teams/FC_Farul_Constanta.svg.png" },
@@ -204,10 +208,7 @@
 
         row.innerHTML = `
           <td>${index + 1}</td>
-          <td>
-            <img src="${team.logo}" alt="${team.name}" class="team-logo inline-block">
-            ${team.name}
-          </td>
+          <td><img src="${team.logo}" alt="${team.name}" class="team-logo inline-block">${team.name}</td>
           <td>${team.puncte}</td>
           <td>${team.gd}</td>
           <td>${team.mj}</td>
