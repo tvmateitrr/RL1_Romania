@@ -6,11 +6,11 @@
   <title>Cluburi - RL1 Romania Sezonul 4</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    /* Fade-in general */
+    /* Fade-in general + background animat */
     body {
       opacity: 0;
       transition: opacity 1s ease-in;
-      background: linear-gradient(-45deg, #1a202c, #2d3748, #1a202c, #4a5568);
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #334155);
       background-size: 400% 400%;
       animation: gradientBG 20s ease infinite;
     }
@@ -24,16 +24,17 @@
 
     /* Club cards */
     .club-card {
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
       cursor: pointer;
-      background: rgba(26, 32, 44, 0.85);
-      backdrop-filter: blur(4px);
-      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(6px);
+      border-radius: 16px;
       padding: 20px;
+      border: 1px solid rgba(0,255,150,0.15);
     }
     .club-card:hover {
-      transform: translateY(-8px) scale(1.06);
-      box-shadow: 0 15px 25px rgba(0, 255, 150, 0.25);
+      transform: translateY(-10px) scale(1.07) rotateX(6deg);
+      box-shadow: 0 20px 35px rgba(0, 255, 150, 0.35);
     }
 
     /* Modal styling */
@@ -41,44 +42,48 @@
       display: none;
       position: fixed;
       z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(8px);
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
       justify-content: center;
       align-items: center;
     }
     .modal-content {
-      background-color: #1a202c;
+      background: linear-gradient(145deg, #111827, #1f2937);
       margin: auto;
-      padding: 30px;
-      border-radius: 12px;
-      width: 90%;
-      max-width: 500px;
-      box-shadow: 0 10px 20px rgba(0, 255, 150, 0.4);
+      padding: 40px 30px;
+      border-radius: 16px;
+      width: 92%;
+      max-width: 600px;
+      box-shadow: 0 20px 35px rgba(0, 255, 150, 0.4);
       position: relative;
       animation: fadeInModal 0.4s ease;
       color: white;
+      text-align: center;
     }
     .close-button {
       color: #aaa;
-      float: right;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: bold;
       cursor: pointer;
       position: absolute;
-      top: 10px;
-      right: 15px;
+      top: 12px;
+      right: 18px;
       transition: color 0.3s;
     }
     .close-button:hover { color: #00ff96; }
     @keyframes fadeInModal {
-      from {opacity: 0; transform: translateY(-30px);}
+      from {opacity: 0; transform: translateY(-40px);}
       to {opacity: 1; transform: translateY(0);}
     }
+
+    .modal-logo {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 20px;
+      transition: transform 0.3s ease;
+    }
+    .modal-logo:hover { transform: scale(1.15); }
   </style>
 </head>
 <body class="text-white fade-in">
@@ -89,50 +94,49 @@
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-4 py-10">
-    <h2 class="text-3xl font-bold mb-8 text-center text-green-400">Cluburi Participante</h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-4xl font-extrabold mb-10 text-center text-green-400 drop-shadow-lg">Cluburi Participante</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
 
-      <!-- 10 cluburi -->
       <div class="club-card flex flex-col items-center text-center" data-team="FCSB">
-        <img src="Teams/FCSB.png" class="w-24 h-24 mb-2" alt="FCSB">
+        <img src="Teams/FCSB.png" class="w-24 h-24 mb-2" alt="Sigla clubului FCSB" loading="lazy">
         <span class="font-semibold text-lg">FCSB</span>
       </div>
       <div class="club-card flex flex-col items-center text-center" data-team="Dinamo Bucuresti">
-        <img src="Teams/Logo_Dinamo_București.svg.png" class="w-24 h-24 mb-2" alt="Dinamo Bucuresti">
+        <img src="Teams/Logo_Dinamo_București.svg.png" class="w-24 h-24 mb-2" alt="Sigla clubului Dinamo Bucuresti" loading="lazy">
         <span class="font-semibold text-lg">Dinamo Bucuresti</span>
       </div>
       <div class="club-card flex flex-col items-center text-center" data-team="Ceahlaul Pt. Neamt">
-        <img src="Teams/Ceahlaul.png" class="w-24 h-24 mb-2" alt="Ceahlaul Pt. Neamt">
+        <img src="Teams/Ceahlaul.png" class="w-24 h-24 mb-2" alt="Sigla clubului Ceahlaul Piatra Neamt" loading="lazy">
         <span class="font-semibold text-lg">Ceahlaul Pt. Neamt</span>
       </div>
       <div class="club-card flex flex-col items-center text-center" data-team="Rapid Bucuresti">
-        <img src="Teams/FC_Rapid_1923_logo.png" class="w-24 h-24 mb-2" alt="Rapid Bucuresti">
+        <img src="Teams/FC_Rapid_1923_logo.png" class="w-24 h-24 mb-2" alt="Sigla clubului Rapid Bucuresti" loading="lazy">
         <span class="font-semibold text-lg">Rapid Bucuresti</span>
       </div>
       <div class="club-card flex flex-col items-center text-center" data-team="CFR Cluj">
-        <img src="Teams/CFR_Cluj.svg.png" class="w-24 h-24 mb-2" alt="CFR Cluj">
+        <img src="Teams/CFR_Cluj.svg.png" class="w-24 h-24 mb-2" alt="Sigla clubului CFR Cluj" loading="lazy">
         <span class="font-semibold text-lg">CFR Cluj</span>
       </div>
-      <div class="club-card flex flex-col items-center text-center" data-team="Metaloglobus Bucuresti">
-        <img src="Teams/Metaloglobus.png" class="w-24 h-24 mb-2" alt="Metaloglobus Bucuresti">
-        <span class="font-semibold text-lg">Metaloglobus Bucuresti</span>
+      <div class="club-card flex flex-col items-center text-center" data-team="Poli Iasi">
+        <img src="Teams/FC_Politehnica_Iasi.svg.png" class="w-24 h-24 mb-2" alt="Sigla clubului Poli Iasi" loading="lazy">
+        <span class="font-semibold text-lg">Poli Iasi</span>
       </div>
-      <div class="club-card flex flex-col items-center text-center" data-team="Universitatea Craiova">
-        <img src="Teams/CS_Universitatea_Craiova_logo.svg.png" class="w-24 h-24 mb-2" alt="Universitatea Craiova">
-        <span class="font-semibold text-lg">Universitatea Craiova</span>
+      <div class="club-card flex flex-col items-center text-center" data-team="UTA Arad">
+        <img src="Teams/UTA_Arad_logo.png" class="w-24 h-24 mb-2" alt="Sigla clubului UTA Arad" loading="lazy">
+        <span class="font-semibold text-lg">UTA Arad</span>
       </div>
       <div class="club-card flex flex-col items-center text-center" data-team="FC Arges">
-        <img src="Teams/FC_Arges.svg.png" class="w-24 h-24 mb-2" alt="FC Arges">
+        <img src="Teams/FC_Arges.svg.png" class="w-24 h-24 mb-2" alt="Sigla clubului FC Arges" loading="lazy">
         <span class="font-semibold text-lg">FC Arges</span>
       </div>
-      <div class="club-card flex flex-col items-center text-center" data-team="Otelul Galati">
-        <img src="Teams/Otelullogo.png" class="w-24 h-24 mb-2" alt="Otelul Galati">
-        <span class="font-semibold text-lg">Otelul Galati</span>
+      <div class="club-card flex flex-col items-center text-center" data-team="CSA Steaua">
+        <img src="Teams/Steaua.png" class="w-24 h-24 mb-2" alt="Sigla clubului CSA Steaua" loading="lazy">
+        <span class="font-semibold text-lg">CSA Steaua</span>
       </div>
-      <div class="club-card flex flex-col items-center text-center" data-team="Petrolul Ploiesti">
-        <img src="Teams/FC_Petrolul_Ploiesti.png" class="w-24 h-24 mb-2" alt="Petrolul Ploiesti">
-        <span class="font-semibold text-lg">Petrolul Ploiesti</span>
+      <div class="club-card flex flex-col items-center text-center" data-team="Corvinul Hunedoara">
+        <img src="Teams/Corvinul.png" class="w-24 h-24 mb-2" alt="Sigla clubului Corvinul Hunedoara" loading="lazy">
+        <span class="font-semibold text-lg">Corvinul Hunedoara</span>
       </div>
 
     </div>
@@ -143,11 +147,12 @@
   </footer>
 
   <!-- Modal -->
-  <div id="teamModal" class="modal">
+  <div id="teamModal" class="modal" role="dialog" aria-labelledby="modalTeamName">
     <div class="modal-content">
       <span class="close-button">&times;</span>
-      <h3 id="modalTeamName" class="text-2xl font-bold mb-4 text-green-400"></h3>
-      <p id="modalTeamInfo" class="text-lg"></p>
+      <img id="modalTeamLogo" class="modal-logo" alt="">
+      <h3 id="modalTeamName" class="text-3xl font-bold mb-4 text-green-400 drop-shadow-md"></h3>
+      <p id="modalTeamInfo" class="text-lg leading-relaxed"></p>
     </div>
   </div>
 
@@ -159,6 +164,7 @@
       const closeButton = document.querySelector(".close-button");
       const modalTeamName = document.getElementById("modalTeamName");
       const modalTeamInfo = document.getElementById("modalTeamInfo");
+      const modalTeamLogo = document.getElementById("modalTeamLogo");
       const clubCards = document.querySelectorAll(".club-card");
 
       const teamDetails = {
@@ -167,24 +173,29 @@
         "Ceahlaul Pt. Neamt": "CSM Ceahlăul Piatra Neamț este un club din Moldova cu o tradiție importantă în fotbal.",
         "Rapid Bucuresti": "Rapid București este un club de fotbal istoric din Capitală, cu o tradiție de peste 100 de ani.",
         "CFR Cluj": "CFR Cluj este unul dintre cluburile de top din România, cu multiple titluri de campioană.",
-        "Metaloglobus Bucuresti": "Metaloglobus București evoluează în ligile inferioare și are o bază solidă în fotbalul bucureștean.",
-        "Universitatea Craiova": "Universitatea Craiova este un club emblematic din Oltenia, cunoscut și ca Știința.",
+        "Poli Iasi": "Poli Iași este un club de fotbal din Moldova cu o prezență constantă în fotbalul românesc.",
+        "UTA Arad": "UTA Arad este un club de fotbal românesc cu tradiție, fondat în 1945. Este cunoscut sub numele de „Bătrâna Doamnă”.",
         "FC Arges": "FC Argeș este un club tradițional din Pitești, cu multiple performanțe în fotbalul românesc.",
-        "Otelul Galati": "Oțelul Galați a avut perioade de glorie în Liga I și participări europene.",
-        "Petrolul Ploiesti": "FC Petrolul Ploiești este un club cu o istorie bogată, unul dintre cele mai cunoscute din Muntenia."
+        "CSA Steaua": "CSA Steaua este un club sportiv al Armatei, cu o istorie bogată și numeroase performanțe.",
+        "Corvinul Hunedoara": "Corvinul Hunedoara este un club istoric, care a revenit în prim-planul fotbalului românesc recent."
       };
 
       clubCards.forEach(card => {
         card.addEventListener("click", () => {
           const teamName = card.getAttribute("data-team");
+          const teamLogo = card.querySelector("img").src;
           modalTeamName.textContent = teamName;
           modalTeamInfo.textContent = teamDetails[teamName] || `Nu sunt disponibile detalii pentru ${teamName}.`;
+          modalTeamLogo.src = teamLogo;
+          modalTeamLogo.alt = `Sigla clubului ${teamName}`;
           modal.style.display = "flex";
         });
       });
 
-      closeButton.addEventListener("click", () => { modal.style.display = "none"; });
-      window.addEventListener("click", (event) => { if (event.target === modal) modal.style.display = "none"; });
+      const closeModal = () => { modal.style.display = "none"; };
+      closeButton.addEventListener("click", closeModal);
+      window.addEventListener("click", (event) => { if (event.target === modal) closeModal(); });
+      window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
     });
   </script>
 </body>

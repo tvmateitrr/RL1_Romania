@@ -3,50 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clasament - RL1 Romania Sezonul 3</title>
+  <title>Clasament - RL1 Romania Sezonul 3 (Corupt)</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
     body {
       opacity: 0;
       transition: opacity 1s ease-in;
+      background-color: #1a1a1a;
+      color: #eee;
+      font-family: 'Arial', sans-serif;
     }
     body.fade-in {
       opacity: 1;
     }
 
+    header {
+      background-color: #7f1d1d;
+      border-bottom: 2px solid #f87171;
+    }
+
+    .alert-banner {
+      background-color: #b91c1c;
+      color: #fff;
+      padding: 12px 20px;
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0.5; }
+    }
+
     .table-container {
-      background-color: #1a202c;
+      background-color: #2a1a1a;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+      margin-top: 20px;
     }
 
     .clasament-table {
       width: 100%;
       border-collapse: collapse;
+      table-layout: fixed;
     }
 
     .clasament-table th,
     .clasament-table td {
-      padding: 12px 15px;
+      padding: 12px 10px;
       text-align: left;
-      border-bottom: 1px solid #2d3748;
+      border-bottom: 1px solid #5a1a1a;
     }
 
     .clasament-table th {
-      background-color: #2d3748;
-      color: #cbd5e0;
+      background-color: #5a1a1a;
+      color: #f87171;
       font-weight: bold;
       text-transform: uppercase;
       font-size: 0.9em;
     }
 
-    .clasament-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .clasament-table tbody tr:hover {
-      background-color: #2a3340;
+    .clasament-table tr:hover {
+      background-color: #3b1a1a;
     }
 
     .team-logo {
@@ -54,28 +76,36 @@
       height: 30px;
       vertical-align: middle;
       margin-right: 8px;
+      opacity: 0.7;
+      filter: grayscale(50%);
+      animation: logo-glitch 1.5s infinite alternate;
     }
 
-    /* Evidențieri */
-    .row-campion {
-      background-color: #22543d !important;
+    @keyframes logo-glitch {
+      0% { transform: translateX(0) rotate(0deg); }
+      25% { transform: translateX(1px) rotate(1deg); }
+      50% { transform: translateX(-1px) rotate(-1deg); }
+      75% { transform: translateX(2px) rotate(0deg); }
+      100% { transform: translateX(0) rotate(1deg); }
     }
-    .row-campion:hover {
-      background-color: #276749 !important;
+
+    /* Evidențieri corupte */
+    .row-campion {
+      background-color: #6b4226 !important;
+      color: #fff;
+      text-shadow: 0 0 3px #ff0000;
     }
 
     .row-baraj {
-      background-color: #744210 !important;
-    }
-    .row-baraj:hover {
-      background-color: #975a16 !important;
+      background-color: #92400e !important;
+      color: #fff;
+      text-shadow: 0 0 2px #ff6b6b;
     }
 
     .row-retrogradare {
-      background-color: #742a2a !important;
-    }
-    .row-retrogradare:hover {
-      background-color: #9b2c2c !important;
+      background-color: #7f1d1d !important;
+      color: #fff;
+      text-shadow: 0 0 4px #ff0000;
     }
 
     /* Dropdown */
@@ -87,10 +117,10 @@
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: #2d3748;
+      background-color: #5a1a1a;
       min-width: 180px;
       border-radius: 0.5rem;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
       opacity: 0;
       transform: translateY(-10px);
       pointer-events: none;
@@ -113,7 +143,7 @@
     }
 
     .dropdown-menu a:hover {
-      background-color: #4a5568;
+      background-color: #7f1d1d;
     }
 
     .dropdown-toggle {
@@ -122,16 +152,32 @@
     }
 
     .dropdown-toggle:hover {
-      color: #c6f6d5;
+      color: #ff6b6b;
+    }
+
+    /* Glitch text pentru titlu */
+    .glitch {
+      position: relative;
+      color: #f87171;
+      font-weight: bold;
+      font-size: 2rem;
+      animation: glitch 1s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px #ff0000, -2px -2px #00ffff; }
+      25% { text-shadow: -2px -2px #ff0000, 2px 2px #00ffff; }
+      50% { text-shadow: 2px -2px #ff0000, -2px 2px #00ffff; }
+      75% { text-shadow: -2px 2px #ff0000, 2px -2px #00ffff; }
+      100% { text-shadow: 2px 2px #ff0000, -2px -2px #00ffff; }
     }
   </style>
 </head>
-<body class="bg-gray-900 text-white fade-in">
-  <header class="bg-green-700 sticky top-0 shadow z-50">
+<body class="fade-in">
+  <header class="sticky top-0 shadow z-50">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center relative">
-      <!-- Dropdown Sezoane -->
       <div class="dropdown">
-        <h1 class="text-2xl font-bold dropdown-toggle">RL1 Romania - Clasament Sezonul 3</h1>
+        <h1 class="glitch dropdown-toggle">⚠️ RL1 Romania - Clasament Sezonul 3 ⚠️</h1>
         <div class="dropdown-menu">
           <a href="ClasamentS1.html">Sezonul 1</a>
           <a href="ClasamentS2.html">Sezonul 2</a>
@@ -139,13 +185,15 @@
           <a href="ClasamentS4.html">Sezonul 4</a>
         </div>
       </div>
-
       <a href="index.html" class="text-sm text-white hover:underline">&larr; Înapoi la Acasă</a>
+    </div>
+    <div class="alert-banner">
+      ⚠️ Sezonul 3 a fost oprit brusc – Clasamentul complet este acesta! ⚠️
     </div>
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-10">
-    <h2 class="text-3xl font-bold mb-8 text-center text-green-400">Clasament Liga 1 RL1 Sezonul 3</h2>
+    <h2 class="text-3xl font-bold mb-8 text-center text-red-500">Clasament Liga 1 RL1 Sezonul 3 (Corupt)</h2>
 
     <div class="table-container">
       <table class="clasament-table">
@@ -162,16 +210,13 @@
       </table>
     </div>
 
-    <!-- Legenda -->
-    <div class="mt-6 text-sm text-gray-300 space-y-1">
-      <p><span class="inline-block w-4 h-4 bg-green-900 mr-2"></span>Campioana (Locul 1)</p>
-      <p><span class="inline-block w-4 h-4 bg-yellow-800 mr-2"></span>Baraj menținere (Locurile 6–7)</p>
-      <p><span class="inline-block w-4 h-4 bg-red-900 mr-2"></span>Retrogradare directă (Locul 8)</p>
+    <div class="mt-6 text-sm text-gray-400 space-y-1">
+      <p><span class="inline-block w-4 h-4 bg-red-900 mr-2"></span>Clasament incomplet / echipe afectate de corupție</p>
     </div>
   </main>
 
   <footer class="text-center py-6 text-sm text-gray-500">
-    © 2025 RL1 Romania - Toate drepturile rezervate
+    © 2025 RL1 Romania - Sezonul 3 întrerupt - Toate drepturile rezervate
   </footer>
 
   <script>

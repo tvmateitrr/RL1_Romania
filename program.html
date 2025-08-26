@@ -55,92 +55,93 @@
       document.body.classList.add("fade-in");
 
       const teams = {
+        "Rapid Bucuresti": "Teams/FC_Rapid_1923_logo.png",
+        "UTA Arad": "Teams/UTA_Arad_logo.png",
+        "CFR Cluj": "Teams/CFR_Cluj.svg.png",
+        "FC Arges": "Teams/FC_Arges.svg.png",
+        "Corvinul Hunedoara": "Teams/Corvinul.png",
+        "Steaua Bucuresti": "Teams/Steaua.png",
         "FCSB": "Teams/FCSB.png",
         "Dinamo Bucuresti": "Teams/Logo_Dinamo_București.svg.png",
-        "Ceahlaul Pt. Neamt": "Teams/Ceahlaul.png",
-        "Rapid Bucuresti": "Teams/FC_Rapid_1923_logo.png",
-        "CFR Cluj": "Teams/CFR_Cluj.svg.png",
-        "Metaloglobus Bucuresti": "Teams/Metaloglobus.png",
-        "Universitatea Craiova": "Teams/CS_Universitatea_Craiova_logo.svg.png",
-        "FC Arges": "Teams/FC_Arges.svg.png",
-        "Otelul Galati": "Teams/Otelullogo.png",
-        "Petrolul Ploiesti": "Teams/FC_Petrolul_Ploiesti.png"
+        "Ceahlaul": "Teams/Ceahlaul.png",
+        "Politehnica Iasi": "Teams/FC_Politehnica_Iasi.svg.png"
       };
 
       const program = [
-        // Etapa 1
-        [
-          ["FCSB", "Petrolul Ploiesti"],
-          ["Dinamo Bucuresti", "Otelul Galati"],
-          ["Ceahlaul Pt. Neamt", "FC Arges"],
-          ["Rapid Bucuresti", "Universitatea Craiova"],
-          ["CFR Cluj", "Metaloglobus Bucuresti"]
-        ],
-        // Etapa 2
-        [
-          ["Petrolul Ploiesti", "Metaloglobus Bucuresti"],
-          ["Universitatea Craiova", "CFR Cluj"],
-          ["FC Arges", "Rapid Bucuresti"],
-          ["Otelul Galati", "Ceahlaul Pt. Neamt"],
-          ["FCSB", "Dinamo Bucuresti"]
-        ],
-        // Etapa 3
-        [
-          ["Dinamo Bucuresti", "Petrolul Ploiesti"],
-          ["Ceahlaul Pt. Neamt", "FCSB"],
-          ["Rapid Bucuresti", "Otelul Galati"],
-          ["CFR Cluj", "FC Arges"],
-          ["Metaloglobus Bucuresti", "Universitatea Craiova"]
-        ],
-        // Etapa 4
-        [
-          ["Petrolul Ploiesti", "Universitatea Craiova"],
-          ["FC Arges", "Metaloglobus Bucuresti"],
-          ["Otelul Galati", "CFR Cluj"],
-          ["FCSB", "Rapid Bucuresti"],
-          ["Dinamo Bucuresti", "Ceahlaul Pt. Neamt"]
-        ],
-        // Etapa 5
-        [
-          ["Ceahlaul Pt. Neamt", "Petrolul Ploiesti"],
-          ["Rapid Bucuresti", "Dinamo Bucuresti"],
-          ["CFR Cluj", "FCSB"],
-          ["Metaloglobus Bucuresti", "Otelul Galati"],
-          ["Universitatea Craiova", "FC Arges"]
-        ],
-        // Etapa 6
-        [
-          ["Petrolul Ploiesti", "FC Arges"],
-          ["Otelul Galati", "Universitatea Craiova"],
-          ["FCSB", "Metaloglobus Bucuresti"],
-          ["Dinamo Bucuresti", "CFR Cluj"],
-          ["Ceahlaul Pt. Neamt", "Rapid Bucuresti"]
-        ],
-        // Etapa 7
-        [
-          ["Rapid Bucuresti", "Petrolul Ploiesti"],
-          ["CFR Cluj", "Ceahlaul Pt. Neamt"],
-          ["Metaloglobus Bucuresti", "Dinamo Bucuresti"],
-          ["Universitatea Craiova", "FCSB"],
-          ["FC Arges", "Otelul Galati"]
-        ],
-        // Etapa 8
-        [
-          ["Petrolul Ploiesti", "Otelul Galati"],
-          ["FCSB", "FC Arges"],
-          ["Dinamo Bucuresti", "Universitatea Craiova"],
-          ["Ceahlaul Pt. Neamt", "Metaloglobus Bucuresti"],
-          ["Rapid Bucuresti", "CFR Cluj"]
-        ],
-        // Etapa 9
-        [
-          ["CFR Cluj", "Petrolul Ploiesti"],
-          ["Metaloglobus Bucuresti", "Rapid Bucuresti"],
-          ["Universitatea Craiova", "Ceahlaul Pt. Neamt"],
-          ["FC Arges", "Dinamo Bucuresti"],
-          ["Otelul Galati", "FCSB"]
-        ]
-      ];
+  // Etapa 1
+  [
+    ["Rapid Bucuresti", "Politehnica Iasi"],
+    ["UTA Arad", "Ceahlaul"],
+    ["CFR Cluj", "Steaua Bucuresti"],
+    ["FC Arges", "Corvinul Hunedoara"],
+    ["FCSB", "Dinamo Bucuresti"]
+  ],
+  // Etapa 2
+  [
+    ["Politehnica Iasi", "Dinamo Bucuresti"],
+    ["Ceahlaul", "FCSB"],
+    ["Steaua Bucuresti", "Rapid Bucuresti"],
+    ["Corvinul Hunedoara", "CFR Cluj"],
+    ["UTA Arad", "FC Arges"]
+  ],
+  // Etapa 3
+  [
+    ["Dinamo Bucuresti", "UTA Arad"],
+    ["FCSB", "Corvinul Hunedoara"],
+    ["Rapid Bucuresti", "CFR Cluj"],
+    ["FC Arges", "Politehnica Iasi"],
+    ["Ceahlaul", "Steaua Bucuresti"]
+  ],
+  // Etapa 4
+  [
+    ["Politehnica Iasi", "UTA Arad"],
+    ["Dinamo Bucuresti", "Ceahlaul"],
+    ["FCSB", "Steaua Bucuresti"],
+    ["Rapid Bucuresti", "FC Arges"],
+    ["CFR Cluj", "Corvinul Hunedoara"]
+  ],
+  // Etapa 5
+  [
+    ["UTA Arad", "Rapid Bucuresti"],
+    ["Ceahlaul", "CFR Cluj"],
+    ["Steaua Bucuresti", "FC Arges"],
+    ["Corvinul Hunedoara", "Dinamo Bucuresti"],
+    ["Politehnica Iasi", "FCSB"]
+  ],
+  // Etapa 6
+  [
+    ["Dinamo Bucuresti", "Rapid Bucuresti"],
+    ["FCSB", "UTA Arad"],
+    ["FC Arges", "CFR Cluj"],
+    ["Steaua Bucuresti", "Corvinul Hunedoara"],
+    ["Ceahlaul", "Politehnica Iasi"]
+  ],
+  // Etapa 7
+  [
+    ["Rapid Bucuresti", "Ceahlaul"],
+    ["UTA Arad", "Steaua Bucuresti"],
+    ["CFR Cluj", "Dinamo Bucuresti"],
+    ["Corvinul Hunedoara", "Politehnica Iasi"],
+    ["FCSB", "FC Arges"]
+  ],
+  // Etapa 8
+  [
+    ["Politehnica Iasi", "CFR Cluj"],
+    ["Dinamo Bucuresti", "Steaua Bucuresti"],
+    ["Ceahlaul", "Corvinul Hunedoara"],
+    ["FC Arges", "UTA Arad"],
+    ["Rapid Bucuresti", "FCSB"]
+  ],
+  // Etapa 9
+  [
+    ["UTA Arad", "Corvinul Hunedoara"],
+    ["CFR Cluj", "FCSB"],
+    ["Steaua Bucuresti", "Politehnica Iasi"],
+    ["Dinamo Bucuresti", "FC Arges"],
+    ["Rapid Bucuresti", "Ceahlaul"]
+  ]
+];
+
 
       const container = document.getElementById("etape-container");
 
