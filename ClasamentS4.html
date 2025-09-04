@@ -1,223 +1,157 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clasament - RL1 Romania Sezonul 4</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    body {
-      opacity: 0;
-      transition: opacity 1s ease-in;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    body.fade-in {
-      opacity: 1;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Clasament - RL1 Romania Sezonul 4</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+  body { opacity: 0; transition: opacity 1s ease-in; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#111827; color:white;}
+  body.fade-in { opacity: 1; }
 
-    /* Container */
-    .table-container {
-      background: linear-gradient(145deg, #1a202c, #111827);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
+  header { background:linear-gradient(90deg,#065f46,#047857); padding:1rem; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:50; }
+  header a { color:white; text-decoration:none; }
+  .dropdown { position:relative; display:inline-block; }
+  .dropdown-toggle { cursor:pointer; font-weight:bold; font-size:1.25rem; }
+  .dropdown-menu { position:absolute; top:100%; left:0; background-color:#1f2937; min-width:180px; border-radius:0.5rem; box-shadow:0 10px 20px rgba(0,0,0,0.5); opacity:0; transform:translateY(-10px); pointer-events:none; transition:all 0.3s ease; z-index:50; }
+  .dropdown.open .dropdown-menu { opacity:1; transform:translateY(0); pointer-events:auto; }
+  .dropdown-menu a { color:#fff; padding:12px 16px; display:block; text-decoration:none; transition:background 0.2s ease; }
+  .dropdown-menu a:hover { background-color:#374151; }
 
-    /* Tabel */
-    .clasament-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
+  main { max-width:900px; margin:auto; padding:2rem; }
+  .table-container { max-height:450px; overflow-y:auto; background:linear-gradient(145deg,#1a202c,#111827); border-radius:14px; box-shadow:0 8px 25px rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.08); margin-bottom:2rem; }
+  table { width:100%; border-collapse:collapse; }
+  th, td { padding:14px 18px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.08); }
+  th { background:linear-gradient(90deg,#065f46,#047857); color:#e6fffa; font-weight:700; text-transform:uppercase; font-size:0.85rem; letter-spacing:1px; position:sticky; top:0; }
+  tbody tr:hover { transform:scale(1.02); background:rgba(255,255,255,0.05); transition:all 0.25s ease-in-out; }
 
-    .clasament-table th,
-    .clasament-table td {
-      padding: 14px 18px;
-      text-align: left;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
+  .team-logo { width:34px; height:34px; vertical-align:middle; margin-right:10px; border-radius:50%; box-shadow:0 0 6px rgba(0,0,0,0.5); }
 
-    .clasament-table th {
-      background: linear-gradient(90deg, #065f46, #047857);
-      color: #e6fffa;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
-    }
+  .row-campion { background:linear-gradient(90deg,#065f46,#047857); box-shadow:inset 0 0 15px rgba(0,255,150,0.4); }
+  .row-baraj { background:linear-gradient(90deg,#78350f,#92400e); box-shadow:inset 0 0 10px rgba(255,200,50,0.4); }
+  .row-retrogradare { background:linear-gradient(90deg,#7f1d1d,#991b1b); box-shadow:inset 0 0 15px rgba(255,50,50,0.5); }
 
-    .clasament-table tbody tr {
-      transition: all 0.25s ease-in-out;
-    }
-    .clasament-table tbody tr:hover {
-      transform: scale(1.02);
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .team-logo {
-      width: 34px;
-      height: 34px;
-      vertical-align: middle;
-      margin-right: 10px;
-      border-radius: 50%;
-      box-shadow: 0 0 6px rgba(0,0,0,0.5);
-    }
-
-    /* Evidențieri */
-    .row-campion {
-      background: linear-gradient(90deg, #065f46, #047857);
-      box-shadow: inset 0 0 15px rgba(0,255,150,0.4);
-    }
-    .row-baraj {
-      background: linear-gradient(90deg, #78350f, #92400e);
-      box-shadow: inset 0 0 10px rgba(255,200,50,0.4);
-    }
-    .row-retrogradare {
-      background: linear-gradient(90deg, #7f1d1d, #991b1b);
-      box-shadow: inset 0 0 15px rgba(255,50,50,0.5);
-    }
-
-    /* Dropdown */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background-color: #1f2937;
-      min-width: 200px;
-      border-radius: 0.5rem;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-      opacity: 0;
-      transform: translateY(-10px);
-      pointer-events: none;
-      transition: all 0.3s ease;
-      z-index: 50;
-    }
-    .dropdown:hover .dropdown-menu {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-    .dropdown-menu a {
-      color: #fff;
-      padding: 12px 16px;
-      display: block;
-      text-decoration: none;
-      transition: background 0.2s ease;
-    }
-    .dropdown-menu a:hover {
-      background-color: #374151;
-    }
-
-    .dropdown-toggle {
-      cursor: pointer;
-      transition: color 0.3s ease;
-    }
-    .dropdown-toggle:hover {
-      color: #a7f3d0;
-    }
-  </style>
+  .etapa { background:#1f2937; padding:1rem; margin-top:1rem; border-radius:0.5rem; }
+  .etapa h3 { color:#a7f3d0; font-weight:bold; margin-bottom:0.5rem; }
+  .etapa ul { padding-left:1.25rem; color:#d1d5db; }
+</style>
 </head>
-<body class="bg-gray-900 text-white fade-in">
-  <header class="bg-gradient-to-r from-green-700 to-green-600 sticky top-0 shadow-lg z-50">
-    <div class="max-w-7xl mx-auto px-4 py-5 flex justify-between items-center relative">
-      <!-- Dropdown Sezoane -->
-      <div class="dropdown">
-        <h1 class="text-2xl font-bold dropdown-toggle">RL1 Romania - Clasament Sezonul 4</h1>
-        <div class="dropdown-menu">
-          <a href="ClasamentS1.html">Sezonul 1</a>
-          <a href="ClasamentS2.html">Sezonul 2</a>
-          <a href="ClasamentS3.html">Sezonul 3</a>
-          <a href="ClasamentS4.html">Sezonul 4</a>
-        </div>
-      </div>
+<body class="fade-in">
 
-      <a href="index.html" class="text-sm text-white hover:underline">&larr; Înapoi la Acasă</a>
+<header>
+  <div class="dropdown" id="dropdown">
+    <span class="dropdown-toggle">RL1 Romania - Sezonul 4 ▼</span>
+    <div class="dropdown-menu">
+      <a href="ClasamentS1.html">Sezon 1</a>
+      <a href="ClasamentS2.html">Sezon 2</a>
+      <a href="ClasamentS3.html">Sezon 3</a>
+      <a href="ClasamentS4.html">Sezon 4</a>
     </div>
-  </header>
+  </div>
+  <a href="index.html">← Acasă</a>
+</header>
 
-  <main class="max-w-6xl mx-auto px-4 py-12">
-    <h2 class="text-4xl font-extrabold mb-10 text-center text-green-400 drop-shadow-lg">Clasament Liga 1 RL1 - Sezonul 4</h2>
+<main>
+  <h1 class="text-4xl font-extrabold mb-10 text-center text-green-400 drop-shadow-lg">Clasament Liga 1 RL1 - Sezonul 4</h1>
 
-    <div class="table-container">
-      <table class="clasament-table">
-        <thead>
-          <tr>
-            <th>Loc</th>
-            <th>Echipa</th>
-            <th>Puncte</th>
-            <th>GD</th>
-            <th>MJ</th>
-          </tr>
-        </thead>
-        <tbody id="clasament-body"></tbody>
-      </table>
-    </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Loc</th>
+          <th>Echipa</th>
+          <th>Puncte</th>
+          <th>GD</th>
+          <th>MJ</th>
+        </tr>
+      </thead>
+      <tbody id="clasament-body"></tbody>
+    </table>
+  </div>
 
-    <!-- Legenda -->
-    <div class="mt-8 text-sm text-gray-300 space-y-2">
-      <p><span class="inline-block w-4 h-4 bg-green-700 mr-2"></span>🏆 Campioana (Locul 1)</p>
-      <p><span class="inline-block w-4 h-4 bg-yellow-700 mr-2"></span>⚔️ Baraj menținere (Locurile 7-8)</p>
-      <p><span class="inline-block w-4 h-4 bg-red-700 mr-2"></span>❌ Retrogradare directă (Locul 9-10)</p>
-    </div>
-  </main>
+  <h2 class="text-3xl font-bold mt-10 text-green-300">Etapele</h2>
+  <div id="etape-container"></div>
+</main>
 
-  <footer class="text-center py-6 text-sm text-gray-500">
-    © 2025 RL1 Romania - Toate drepturile rezervate
-  </footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdown = document.getElementById('dropdown');
+  dropdown.querySelector('.dropdown-toggle').addEventListener('click', () => {
+    dropdown.classList.toggle('open');
+  });
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("fade-in");
+  const teams = {
+    "Rapid Bucuresti":"Teams/FC_Rapid_1923_logo.png",
+    "UTA Arad":"Teams/UTA_Arad_logo.png",
+    "CFR Cluj":"Teams/CFR_Cluj.svg.png",
+    "FC Arges":"Teams/FC_Arges.svg.png",
+    "Corvinul Hunedoara":"Teams/Corvinul.png",
+    "Steaua Bucuresti":"Teams/Steaua.png",
+    "FCSB":"Teams/FCSB.png",
+    "U Cluj":"Teams/U_Cluj.svg.png",
+    "Ceahlaul Pt. Neamt":"Teams/Ceahlaul.png",
+    "Politehnica Iasi":"Teams/FC_Politehnica_Iasi.svg.png"
+  };
 
-      const teamsData = [
-        { name: "FCSB", puncte: 0, gd: -7, mj: 1, logo: "Teams/FCSB.png" },
-        { name: "U Cluj", puncte: 3, gd: 7, mj: 1, logo: "Teams/U_Cluj.svg.png" },
-        { name: "Ceahlaul Pt. Neamt", puncte: 3, gd: 7, mj: 1, logo: "Teams/Ceahlaul.png" },
-        { name: "Rapid Bucuresti", puncte: 3, gd: 2, mj: 1, logo: "Teams/FC_Rapid_1923_logo.png" },
-        { name: "CFR Cluj", puncte: 3, gd: 5, mj: 1, logo: "Teams/CFR_Cluj.svg.png" },
-        { name: "Corvinul Hunedoara", puncte: 3, gd: 3, mj: 1, logo: "Teams/Corvinul.png" },
-        { name: "UTA Arad", puncte: 0, gd: -7, mj: 1, logo: "Teams/UTA_Arad_logo.png" },
-        { name: "FC Arges", puncte: 0, gd: -3, mj: 1, logo: "Teams/FC_Arges.svg.png" },
-        { name: "CSA Steaua", puncte: 0, gd: -5, mj: 1, logo: "Teams/Steaua.png" },
-        { name: "Poli Iasi", puncte: 0, gd: -2, mj: 1, logo: "Teams/FC_Politehnica_Iasi.svg.png" }
-      ];
+  // Toate etapele (exemplu complet pentru 9 etape)
+  const program = [
+    [["Rapid Bucuresti","Politehnica Iasi","4","2"],["UTA Arad","Ceahlaul Pt. Neamt","1","8"],["CFR Cluj","Steaua Bucuresti","8","3"],["FC Arges","Corvinul Hunedoara","0","3"],["FCSB","U Cluj","7","2"]],
+    [["Politehnica Iasi","U Cluj","-","-"],["Ceahlaul Pt. Neamt","FCSB","-","-"],["Steaua Bucuresti","Rapid Bucuresti","-","-"],["Corvinul Hunedoara","CFR Cluj","-","-"],["UTA Arad","FC Arges","-","-"]],
+    [["U Cluj","UTA Arad","-","-"],["FCSB","Corvinul Hunedoara","-","-"],["Rapid Bucuresti","CFR Cluj","-","-"],["FC Arges","Politehnica Iasi","-","-"],["Ceahlaul Pt. Neamt","Steaua Bucuresti","-","-"]],
+    [["Politehnica Iasi","UTA Arad","-","-"],["U Cluj","Ceahlaul Pt. Neamt","-","-"],["FCSB","Steaua Bucuresti","-","-"],["Rapid Bucuresti","FC Arges","-","-"],["CFR Cluj","Corvinul Hunedoara","-","-"]],
+    [["UTA Arad","Rapid Bucuresti","-","-"],["Ceahlaul Pt. Neamt","CFR Cluj","-","-"],["Steaua Bucuresti","FC Arges","-","-"],["Corvinul Hunedoara","U Cluj","-","-"],["Politehnica Iasi","FCSB","-","-"]],
+    [["U Cluj","Rapid Bucuresti","-","-"],["FCSB","UTA Arad","-","-"],["FC Arges","CFR Cluj","-","-"],["Steaua Bucuresti","Corvinul Hunedoara","-","-"],["Ceahlaul Pt. Neamt","Politehnica Iasi","-","-"]],
+    [["Rapid Bucuresti","Ceahlaul Pt. Neamt","-","-"],["UTA Arad","Steaua Bucuresti","-","-"],["CFR Cluj","U Cluj","-","-"],["Corvinul Hunedoara","Politehnica Iasi","-","-"],["FCSB","FC Arges","-","-"]],
+    [["Politehnica Iasi","CFR Cluj","-","-"],["U Cluj","Steaua Bucuresti","-","-"],["Ceahlaul Pt. Neamt","Corvinul Hunedoara","-","-"],["FC Arges","UTA Arad","-","-"],["Rapid Bucuresti","FCSB","-","-"]],
+    [["UTA Arad","Corvinul Hunedoara","-","-"],["CFR Cluj","FCSB","-","-"],["Steaua Bucuresti","Politehnica Iasi","-","-"],["U Cluj","FC Arges","-","-"],["Rapid Bucuresti","Ceahlaul Pt. Neamt","-","-"]]
+  ];
 
-      teamsData.sort((a, b) => {
-        if (a.puncte !== b.puncte) return b.puncte - a.puncte;
-        return b.gd - a.gd;
-      });
+  // Calcul clasament automat
+  const teamsData = {};
+  Object.keys(teams).forEach(t => { teamsData[t]={puncte:0, gd:0, mj:0, logo:teams[t]}; });
 
-      const clasamentBody = document.getElementById("clasament-body");
-
-      teamsData.forEach((team, index) => {
-        const row = document.createElement("tr");
-
-        // Corecție culori
-        if (index === 0) {
-          row.classList.add("row-campion");
-        } else if (index === 6 || index === 7) {
-          row.classList.add("row-baraj");
-        } else if (index === 8 || index === 9) {
-          row.classList.add("row-retrogradare");
-        }
-
-        row.innerHTML = `
-          <td class="font-bold">${index + 1}</td>
-          <td class="flex items-center">
-            <img src="${team.logo}" alt="${team.name}" class="team-logo">
-            <span class="font-semibold">${team.name}</span>
-          </td>
-          <td class="text-green-400 font-bold">${team.puncte}</td>
-          <td class="text-blue-300">${team.gd}</td>
-          <td class="text-gray-300">${team.mj}</td>
-        `;
-        clasamentBody.appendChild(row);
-      });
+  program.forEach(etapa => {
+    etapa.forEach(meci=>{
+      let [home, away, homeG, awayG] = meci;
+      if(homeG!=='-' && awayG!=='-'){
+        homeG=parseInt(homeG); awayG=parseInt(awayG);
+        teamsData[home].mj++; teamsData[away].mj++;
+        teamsData[home].gd += homeG-awayG; teamsData[away].gd += awayG-homeG;
+        if(homeG>awayG) teamsData[home].puncte+=3;
+        else if(homeG<awayG) teamsData[away].puncte+=3;
+        else { teamsData[home].puncte++; teamsData[away].puncte++; }
+      }
     });
-  </script>
+  });
+
+  const clasamentArr = Object.entries(teamsData).map(([name,data])=>({name,...data}));
+  clasamentArr.sort((a,b)=> b.puncte-a.puncte || b.gd-b.gd);
+
+  const tbody = document.getElementById('clasament-body');
+  clasamentArr.forEach((team,index)=>{
+    const row = document.createElement('tr');
+    if(index===0) row.classList.add('row-campion');
+    else if(index>=6 && index<=7) row.classList.add('row-baraj');
+    else if(index>=8) row.classList.add('row-retrogradare');
+    row.innerHTML = `<td>${index+1}</td>
+                     <td class="flex items-center"><img src="${team.logo}" alt="${team.name}" class="team-logo">${team.name}</td>
+                     <td class="text-green-400 font-bold">${team.puncte}</td>
+                     <td class="text-blue-300">${team.gd}</td>
+                     <td class="text-gray-300">${team.mj}</td>`;
+    tbody.appendChild(row);
+  });
+
+  // Afisare etape
+  const etapeContainer = document.getElementById('etape-container');
+  program.forEach((etapa,i)=>{
+    const div = document.createElement('div'); div.className="etapa";
+    let html=`<h3>Etapa ${i+1}</h3><ul>`;
+    etapa.forEach(m=>{ html+=`<li>${m[0]} ${m[2]} - ${m[3]} ${m[1]}</li>`; });
+    html+='</ul>'; div.innerHTML=html;
+    etapeContainer.appendChild(div);
+  });
+});
+</script>
+
 </body>
 </html>

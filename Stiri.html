@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Știri RL1 România</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #000;
+      overflow-x: hidden;
+      position: relative;
+      color: white;
+    }
+
+    #bgCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+    }
+
+    .news-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+    }
+
+    /* POPUP */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      color: black;
+      max-width: 700px;
+      width: 90%;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-y: auto;
+      max-height: 80vh;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+    .modal-content img {
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BACKGROUND -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- HEADER -->
+  <header class="bg-red-700 bg-opacity-90 text-white p-4 shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">RL1 România</h1>
+      <nav class="space-x-6 font-medium">
+        <a href="index.html" class="hover:underline">Acasa</a>
+        <a href="Cluburi.html" class="hover:underline">Cluburi</a>
+        <a href="ClasamentS4.html" class="hover:underline">Clasament</a>
+        <a href="program.html" class="hover:underline">Program</a>
+        <a href="Contact.html" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- GRID ȘTIRI -->
+  <main class="max-w-6xl mx-auto mt-6 px-4 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <!-- ȘTIRE PRINCIPALĂ -->
+    <div class="news-card md:col-span-2 bg-white bg-opacity-90 text-black rounded-xl overflow-hidden shadow" onclick="openModal('modal1')">
+      <img src="https://via.placeholder.com/800x450" alt="Imagine știre" class="w-full h-64 md:h-96 object-cover">
+      <div class="p-4">
+        <h2 class="text-xl md:text-2xl font-bold text-gray-900 hover:text-red-600">
+          CFR Cluj l-a anunțat oficial pe Kurt Zouma – Reacția EXCLUSIVĂ a patronului Varga
+        </h2>
+      </div>
+    </div>
+
+    <!-- ȘTIRE SECUNDARĂ -->
+    <div class="news-card bg-white bg-opacity-90 text-black rounded-xl overflow-hidden shadow" onclick="openModal('modal2')">
+      <img src="https://via.placeholder.com/400x250" alt="Imagine știre" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <h3 class="mt-1 text-lg font-semibold text-gray-900 hover:text-red-600">
+          Gigi Becali a scăpat o afirmație revoltătoare despre transferul lui Zouma la CFR Cluj
+        </h3>
+      </div>
+    </div>
+
+    <!-- ȘTIRE SECUNDARĂ -->
+    <div class="news-card bg-white bg-opacity-90 text-black rounded-xl overflow-hidden shadow" onclick="openModal('modal3')">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-gray-900 hover:text-red-600">
+          „Ar fi cel mai bun U21 de la FCSB!” – Pancu pariază pe 3 fotbaliști
+        </h3>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- MODALE -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal1')">&times;</span>
+      <img src="https://via.placeholder.com/800x450" alt="Imagine știre">
+      <h2 class="text-2xl font-bold mb-3">CFR Cluj l-a anunțat oficial pe Kurt Zouma</h2>
+      <p>
+        CFR Cluj a făcut un anunț oficial în ceea ce privește transferul lui Kurt Zouma. Patronul echipei, Varga,
+        a oferit o reacție exclusivă în care a declarat că acest transfer este un pas important pentru echipă și pentru fotbalul românesc.
+      </p>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal2')">&times;</span>
+      <img src="https://via.placeholder.com/400x250" alt="Imagine știre">
+      <h2 class="text-2xl font-bold mb-3">Gigi Becali – declarație șoc despre Zouma</h2>
+      <p>
+        Într-o intervenție surprinzătoare, Gigi Becali a comentat transferul lui Zouma la CFR Cluj,
+        făcând o afirmație revoltătoare care a stârnit reacții în rândul fanilor și analiștilor sportivi.
+      </p>
+    </div>
+  </div>
+
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal('modal3')">&times;</span>
+      <h2 class="text-2xl font-bold mb-3">Daniel Pancu pariază pe tineri</h2>
+      <p>
+        Daniel Pancu este convins că un jucător U21 de la FCSB are potențialul să devină „noul Nicolae Stanciu”.
+        Fostul internațional a pariat pe trei tineri promițători care ar putea schimba viitorul echipei.
+      </p>
+    </div>
+  </div>
+
+  <!-- SCRIPT POPUP -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = "flex";
+    }
+    function closeModal(id) {
+      document.getElementById(id).style.display = "none";
+    }
+  </script>
+
+  <!-- SCRIPT BACKGROUND PARTICULE -->
+  <script>
+    const canvas = document.getElementById('bgCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 5 + 2;
+        this.speedX = (Math.random() - 0.5) * 0.7;
+        this.speedY = (Math.random() - 0.5) * 0.7;
+        this.color = `hsla(${Math.random() * 360}, 100%, 50%, 0.7)`;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.fill();
+      }
+    }
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < 80; i++) {
+        particles.push(new Particle());
+      }
+    }
+
+    function animate() {
+      ctx.fillStyle = "rgba(0,0,0,0.2)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    initParticles();
+    animate();
+
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      initParticles();
+    });
+  </script>
+</body>
+</html>

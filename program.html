@@ -39,11 +39,8 @@
   </header>
 
   <main class="max-w-6xl mx-auto px-4 py-12">
-
     <h2 class="text-4xl font-extrabold mb-10 text-center text-green-400 drop-shadow-lg">Program Liga 1 RL1 - Sezonul 4</h2>
-
     <div id="etape-container"></div>
-
   </main>
 
   <footer class="text-center py-6 text-sm text-gray-500">
@@ -62,86 +59,87 @@
         "Corvinul Hunedoara": "Teams/Corvinul.png",
         "Steaua Bucuresti": "Teams/Steaua.png",
         "FCSB": "Teams/FCSB.png",
-        "Dinamo Bucuresti": "Teams/Logo_Dinamo_București.svg.png",
+        "U Cluj": "Teams/U_Cluj.svg.png",
         "Ceahlaul": "Teams/Ceahlaul.png",
         "Politehnica Iasi": "Teams/FC_Politehnica_Iasi.svg.png"
       };
 
+      // Array-ul programului cu scoruri (puneti "-" daca nu e stabilit scorul)
       const program = [
-  // Etapa 1
-  [
-    ["Rapid Bucuresti", "Politehnica Iasi"],
-    ["UTA Arad", "Ceahlaul"],
-    ["CFR Cluj", "Steaua Bucuresti"],
-    ["FC Arges", "Corvinul Hunedoara"],
-    ["FCSB", "Dinamo Bucuresti"]
-  ],
-  // Etapa 2
-  [
-    ["Politehnica Iasi", "Dinamo Bucuresti"],
-    ["Ceahlaul", "FCSB"],
-    ["Steaua Bucuresti", "Rapid Bucuresti"],
-    ["Corvinul Hunedoara", "CFR Cluj"],
-    ["UTA Arad", "FC Arges"]
-  ],
+        // Etapa 1
+        [
+          ["Rapid Bucuresti", "Politehnica Iasi", "4", "2"],
+          ["UTA Arad", "Ceahlaul", "1", "8"],
+          ["CFR Cluj", "Steaua Bucuresti", "8", "3"],
+          ["FC Arges", "Corvinul Hunedoara", "0", "3"],
+          ["FCSB", "U Cluj", "7", "2"]
+        ],
+        // Etapa 2
+        [
+          ["Politehnica Iasi", "U Cluj", "-", "-"],
+          ["Ceahlaul", "FCSB", "-", "-"],
+          ["Steaua Bucuresti", "Rapid Bucuresti", "-", "-"],
+          ["Corvinul Hunedoara", "CFR Cluj", "-", "-"],
+          ["UTA Arad", "FC Arges", "-", "-"]
+        ],
   // Etapa 3
   [
-    ["Dinamo Bucuresti", "UTA Arad"],
-    ["FCSB", "Corvinul Hunedoara"],
-    ["Rapid Bucuresti", "CFR Cluj"],
-    ["FC Arges", "Politehnica Iasi"],
-    ["Ceahlaul", "Steaua Bucuresti"]
+    ["U Cluj", "UTA Arad", "-", "-"],
+    ["FCSB", "Corvinul Hunedoara", "-", "-"],
+    ["Rapid Bucuresti", "CFR Cluj", "-", "-"],
+    ["FC Arges", "Politehnica Iasi", "-", "-"],
+    ["Ceahlaul", "Steaua Bucuresti", "-", "-"]
   ],
   // Etapa 4
   [
-    ["Politehnica Iasi", "UTA Arad"],
-    ["Dinamo Bucuresti", "Ceahlaul"],
-    ["FCSB", "Steaua Bucuresti"],
-    ["Rapid Bucuresti", "FC Arges"],
-    ["CFR Cluj", "Corvinul Hunedoara"]
+    ["Politehnica Iasi", "UTA Arad", "-", "-"],
+    ["U Cluj", "Ceahlaul", "-", "-"],
+    ["FCSB", "Steaua Bucuresti", "-", "-"],
+    ["Rapid Bucuresti", "FC Arges", "-", "-"],
+    ["CFR Cluj", "Corvinul Hunedoara", "-", "-"]
   ],
   // Etapa 5
   [
-    ["UTA Arad", "Rapid Bucuresti"],
-    ["Ceahlaul", "CFR Cluj"],
-    ["Steaua Bucuresti", "FC Arges"],
-    ["Corvinul Hunedoara", "Dinamo Bucuresti"],
-    ["Politehnica Iasi", "FCSB"]
+    ["UTA Arad", "Rapid Bucuresti", "-", "-"],
+    ["Ceahlaul", "CFR Cluj", "-", "-"],
+    ["Steaua Bucuresti", "FC Arges", "-", "-"],
+    ["Corvinul Hunedoara", "U Cluj", "-", "-"],
+    ["Politehnica Iasi", "FCSB", "-", "-"]
   ],
   // Etapa 6
   [
-    ["Dinamo Bucuresti", "Rapid Bucuresti"],
-    ["FCSB", "UTA Arad"],
-    ["FC Arges", "CFR Cluj"],
-    ["Steaua Bucuresti", "Corvinul Hunedoara"],
-    ["Ceahlaul", "Politehnica Iasi"]
+    ["U Cluj", "Rapid Bucuresti", "-", "-"],
+    ["FCSB", "UTA Arad", "-", "-"],
+    ["FC Arges", "CFR Cluj", "-", "-"],
+    ["Steaua Bucuresti", "Corvinul Hunedoara", "-", "-"],
+    ["Ceahlaul", "Politehnica Iasi", "-", "-"]
   ],
   // Etapa 7
   [
-    ["Rapid Bucuresti", "Ceahlaul"],
-    ["UTA Arad", "Steaua Bucuresti"],
-    ["CFR Cluj", "Dinamo Bucuresti"],
-    ["Corvinul Hunedoara", "Politehnica Iasi"],
-    ["FCSB", "FC Arges"]
+    ["Rapid Bucuresti", "Ceahlaul", "-", "-"],
+    ["UTA Arad", "Steaua Bucuresti", "-", "-"],
+    ["CFR Cluj", "U Cluj", "-", "-"],
+    ["Corvinul Hunedoara", "Politehnica Iasi", "-", "-"],
+    ["FCSB", "FC Arges", "-", "-"]
   ],
   // Etapa 8
   [
-    ["Politehnica Iasi", "CFR Cluj"],
-    ["Dinamo Bucuresti", "Steaua Bucuresti"],
-    ["Ceahlaul", "Corvinul Hunedoara"],
-    ["FC Arges", "UTA Arad"],
-    ["Rapid Bucuresti", "FCSB"]
+    ["Politehnica Iasi", "CFR Cluj", "-", "-"],
+    ["U Cluj", "Steaua Bucuresti", "-", "-"],
+    ["Ceahlaul", "Corvinul Hunedoara", "-", "-"],
+    ["FC Arges", "UTA Arad", "-", "-"],
+    ["Rapid Bucuresti", "FCSB", "-", "-"]
   ],
   // Etapa 9
   [
-    ["UTA Arad", "Corvinul Hunedoara"],
-    ["CFR Cluj", "FCSB"],
-    ["Steaua Bucuresti", "Politehnica Iasi"],
-    ["Dinamo Bucuresti", "FC Arges"],
-    ["Rapid Bucuresti", "Ceahlaul"]
+    ["UTA Arad", "Corvinul Hunedoara", "-", "-"],
+    ["CFR Cluj", "FCSB", "-", "-"],
+    ["Steaua Bucuresti", "Politehnica Iasi", "-", "-"],
+    ["U Cluj", "FC Arges", "-", "-"],
+    ["Rapid Bucuresti", "Ceahlaul", "-", "-"]
   ]
-];
-
+        // Adauga restul etapelor aici...
+      ];
 
       const container = document.getElementById("etape-container");
 
@@ -154,7 +152,9 @@
             <thead>
               <tr>
                 <th>Gazdă</th>
+                <th>Scor</th>
                 <th>VS</th>
+                <th>Scor</th>
                 <th>Oaspete</th>
               </tr>
             </thead>
@@ -164,7 +164,9 @@
                   <td class="flex items-center">
                     <img src="${teams[meci[0]]}" class="team-logo" alt="${meci[0]}">${meci[0]}
                   </td>
+                  <td class="text-center font-bold">${meci[2]}</td>
                   <td class="text-center font-bold">-</td>
+                  <td class="text-center font-bold">${meci[3]}</td>
                   <td class="flex items-center">
                     <img src="${teams[meci[1]]}" class="team-logo" alt="${meci[1]}">${meci[1]}
                   </td>
@@ -175,8 +177,8 @@
         `;
         container.appendChild(div);
       });
-
     });
   </script>
 </body>
 </html>
+
