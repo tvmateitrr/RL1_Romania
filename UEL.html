@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Europa League Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* BODY + TRANZIȚIE FADE-IN */
+    body {
+      background: url('img/UELbg.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    body.loaded {
+      opacity: 1;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 40, 0.6);
+      z-index: -1;
+    }
+
+    .glow-text {
+      text-shadow: 0 0 10px #ff8000, 0 0 20px #ffa500, 0 0 40px #ffc966;
+    }
+  </style>
+</head>
+<body class="relative">
+
+  <div class="overlay"></div>
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 right-0 bg-black bg-opacity-40 backdrop-blur-md flex items-center justify-between px-6 py-3 z-50">
+    <!-- Stânga: Logo + RL1 Romania -->
+    <div class="flex items-center space-x-3">
+      <img src="img/logo.png" alt="RL1 Logo" class="w-10 h-10 rounded-full">
+      <span class="text-xl font-bold glow-text">RL1 Romania</span>
+    </div>
+
+    <!-- Mijloc: Europa League Logo -->
+    <div class="absolute left-1/2 transform -translate-x-1/2">
+      <img src="img/UELlogo.png" 
+           alt="Europa League Logo" class="w-10 h-10">
+    </div>
+
+    <!-- Dreapta: Buton Home -->
+    <a href="index.html" class="bg-orange-600 hover:bg-orange-800 text-white font-semibold px-4 py-2 rounded-lg transition">
+      ⬅ Înapoi Acasă
+    </a>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="text-center py-24">
+    <h1 class="text-5xl font-bold glow-text">🏆 Europa League</h1>
+    <p class="text-lg mt-2 text-gray-200">Clasamente & Programul Meciurilor</p>
+  </header>
+
+  <!-- CLASAMENT -->
+  <section id="clasament" class="max-w-6xl mx-auto p-6">
+    <h2 class="text-3xl font-semibold mb-6 glow-text">Clasament Grupe</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      
+      <!-- Grupa A -->
+      <div class="bg-white bg-opacity-10 p-6 rounded-2xl shadow-lg backdrop-blur">
+        <h3 class="text-xl font-bold mb-4">Grupa A</h3>
+        <table class="w-full text-left">
+          <thead>
+            <tr class="text-gray-300">
+              <th>Echipă</th>
+              <th>Puncte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>De decis</td><td>0</td></tr>
+            <tr><td>De decis</td><td>0</td></tr>
+            <tr><td>De decis</td><td>0</td></tr>
+            <tr><td>De decis</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Grupa B -->
+      <div class="bg-white bg-opacity-10 p-6 rounded-2xl shadow-lg backdrop-blur">
+        <h3 class="text-xl font-bold mb-4">Grupa B</h3>
+        <table class="w-full text-left">
+          <thead>
+            <tr class="text-gray-300">
+              <th>Echipă</th>
+              <th>Puncte</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>De decis</td><td>0</td></tr>
+            <tr><td>De decis</td><td>0</td></tr>
+            <tr><td>De decis</td><td>0</td></tr>
+            <tr><td>De decis</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MECIURI -->
+  <section id="meciuri" class="max-w-6xl mx-auto p-6 mt-12">
+    <h2 class="text-3xl font-semibold mb-6 glow-text">Program Meciuri</h2>
+    <div class="space-y-4">
+      <div class="bg-white bg-opacity-10 p-4 rounded-xl flex justify-between items-center hover:scale-105 transition">
+        <span>De decis vs De decis</span>
+        <span class="text-gray-300">Ora de decis</span>
+      </div>
+      <div class="bg-white bg-opacity-10 p-4 rounded-xl flex justify-between items-center hover:scale-105 transition">
+        <span>De decis vs De decis</span>
+        <span class="text-gray-300">Ora de decis</span>
+      </div>
+      <div class="bg-white bg-opacity-10 p-4 rounded-xl flex justify-between items-center hover:scale-105 transition">
+        <span>De decis vs De decis</span>
+        <span class="text-gray-300">Ora de decis</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center py-6 text-gray-300 mt-12">
+    © 2025 RL1 Romania
+  </footer>
+
+  <!-- SCRIPT FADE-IN -->
+  <script>
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
+
+</body>
+</html>
